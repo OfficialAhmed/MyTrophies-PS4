@@ -1,7 +1,6 @@
-# MyTrophies-Beta-0.1-
-This tool is Created by @OfficialAhmed0 for the PS4 community 
-This is only a testing version, so I can get any recommendations from you guys and develop it 
-for the next version which is going to be  a full GUI (Graphical User Interface) application. 
-I used Python language  to read .dat file and show results based on that file.
+# MyTrophies
+PS4 trophy hunters with a jailbriken console? this is for you to see your trophies information.
+This will work using all HEN Kexploit versions as long as you can browse PS4 console files through FTP or PS4 Homebrew file browser 
 
-This will work using all HEN xploit version as long as you can browse PS4 console files through FTP or PS4 Homebrew file browser 
+* Download latest version
+>MyTrophies v2 (50MB) https://mega.nz/#!T6on3YpS!WicIVOmzJf5qD-q15O5g6hNVZXrZAGmayCcdDkQLQoI
