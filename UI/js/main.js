@@ -1,7 +1,8 @@
 async function connect_pressed() {
-    /*
-          Check PlayStation FTP connection
-      */
+    /////////////////////////////////
+    //   Check PS4 FTP connection
+    /////////////////////////////////
+
     let status = document.getElementById("wb_uid1");
     let ip = document.getElementById("ip_field").value;
     let port = document.getElementById("port_field").value;
@@ -12,12 +13,33 @@ async function connect_pressed() {
         alert(respond[1]);
         status.innerHTML = "FAILED TO CONNECT";
         status.style.color = "red";
-        status.style.fontSize = "15px";
     } else {
         status.innerHTML = "CONNECTED";
         status.style.color = "green";
-        status.style.fontSize = "15px";
     }
+    status.style.fontSize = "15px";
+}
+
+async function calculate_points() {
+    /////////////////////////////////////////////////////
+    //   calculate trophy points any time user onchange
+    /////////////////////////////////////////////////////
+    let bronze = parseInt(document.getElementById("user_bronze").value);
+    let silver = parseInt(document.getElementById("user_silver").value);
+    let gold = parseInt(document.getElementById("user_gold").value);
+    let plat = parseInt(document.getElementById("user_plat").value);
+
+    trophies = [bronze, silver, gold, plat];
+
+    for (let index = 0; index < trophies.length; index++) {
+        if (isNaN(trophies[index])) {
+            trophies[index] = 0;
+        }
+    }
+
+    // wait for Python to return the result
+    result = await eel.calculate(trophies)();
+    document.getElementById("calculator_result").value = result;
 }
 
 window.onload = function() {
