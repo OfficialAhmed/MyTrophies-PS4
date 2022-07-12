@@ -11,20 +11,29 @@ class My_trophies:
         self.dir = ""
 
     def connect(self):
-        self.ftp.connect(self.ip, self.port)
+        try: 
+            self.ftp.connect(self.ip, self.port)
+            return (True, "listening")
+        except TimeoutError:
+            error = "PS4 didn't respond...\n1.Make sure IP and Port entered correctly and PS4 running the FTP\n2.Make sure both PC and PS4 connected on same WI-Fi connection"
+            return (False, error)
+        except Exception as e:
+            error = str(e)
+            return (False, error)
+
+    def login(self):
         self.ftp.login("", "")
         if self.ftp.getwelcome():
-            print("Hello from PlayStation")
-            return True
-        else:
-            print("Cannot connect")
-            return False
+            pass
+        
+playstation = None
 
 @eel.expose
-def initialize(input: str):
-    user_input = input.split(",")
-    playstation = My_trophies(user_input[0], user_input[1])
-    playstation.connect()
-    
+def init_connection(ip: str, port: str):
+    global playstation
+    playstation = My_trophies(ip, int(port.strip()))
+    respond = playstation.connect()
+    return respond    
 
-eel.start('index.html', size=(700, 600))
+    
+eel.start('index.html', port=9764, host='localhost',  mode='chrome', size=(700, 600))

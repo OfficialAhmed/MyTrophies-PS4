@@ -1,40 +1,570 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>QR Code Generator</title>
+    <meta charset="utf-8" />
+    <title>My Trophies v3.02</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="font/font-awesome.min.css" rel="stylesheet" />
+    <link href="base/jquery-ui.min.css" rel="stylesheet" />
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.inputmask.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/main.js"></script>
+
+    <script type="text/javascript" src="eel.js"></script>
+
     <link href="style.css" rel="stylesheet" />
-    <script type="text/javascript" src="/eel.js"></script>
-    <script type="text/javascript" src="main.js"></script>
 </head>
 
 <body>
-    <section class="wellcome_area clearfix" id="home">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12 col-md">
-                    <div class="wellcome-heading">
-                        <h2>Code Generator</h2>
-                        <h3>QR</h3>
-                        <p>Turn any piece of text into a QR code.</p>
+    <div id="top_container">
+        <div id="wb_connection_layout_grid">
+            <div id="connection_layout_grid">
+                <div class="col-1">
+                    <div id="wb_Text2">&nbsp;</div>
+                    <div id="FlexGrid2">
+                        <div class="header">
+                            <div id="wb_connection_status">
+                                <h5 id="wb_uid1">NOT CONNECTED</h5>
+                            </div>
+                            <div id="wb_ip_field">
+                                <input type="text" id="ip_field" name="ip_input" value="" maxlength="16" spellcheck="false" placeholder="IP" />
+                                <div class="invalid-feedback">Invalid IP</div>
+                            </div>
+                            <div id="wb_port_field">
+                                <input type="number" id="port_field" name="port_input" value="" maxlength="8" spellcheck="false" placeholder="Port" />
+                                <div class="invalid-feedback">Invalid Port</div>
+                            </div>
+                        </div>
+                        <div class="main" style="padding-top: 10px">
+                            <button type="submit" id="connect_btn" name="connect_btn" onclick="connect_pressed()">
+                  Connect
+                </button>
+                        </div>
+                        <div class="sidebar"></div>
+                        <div class="footer" style="padding-bottom: 20px">
+                            <hr id="Line2" />
+                            <button type="submit" id="fetch_btn" name="fetch_btn" value="Fetch" style="margin: 5px 0px 10px 0px">
+                  Fetch
+                </button>
+                            <select name="users" size="1" id="users" autocomplete="off"></select>
+                        </div>
                     </div>
-                    <div class="get-start-area">
-                        <form class="form-inline">
-                            <input type="text" id="data" class="form-control email" placeholder="Enter text" />
-                            <input type="button" class="submit" value="Print Data" onclick="print_data()" />
-                        </form>
+                </div>
+                <div class="col-2">
+                    <div id="FlexGrid1">
+                        <div class="header">
+                            <div id="wb_title">
+                                <span id="wb_uid2"><strong>My Trophies v3.02</strong></span>
+                            </div>
+                            <hr id="Line1" />
+                        </div>
+                        <div class="main">
+                            <div id="wb_instructions">
+                                <ul id="wb_uid3">
+                                    <li id="wb_uid4">Enter PS4 IP and Port</li>
+                                    <li id="wb_uid5">Click on connect</li>
+                                    <li id="wb_uid6">
+                                        If connection is success, click on fetch. A list of users will be generated
+                                    </li>
+                                    <li id="wb_uid7">Pick the desired user</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="welcome-thumb">
-            <img id="qr" src="" width="60%" />
+    </div>
+    <div id="mid_container">
+        <div id="wb_trophies_layout_grid">
+            <div id="trophies_layout_grid">
+                <div class="row">
+                    <div class="col-1">
+                        <div class="col-1-padding">
+                            <div id="wb_level_card" class="card">
+                                <div id="level_card-card-body">
+                                    <div id="level_card-card-item0">
+                                        <i class="fa fa-angle-double-up"></i>
+                                    </div>
+                                    <div id="level_card-card-item1">LEVEL</div>
+                                    <div id="level_card-card-item2">
+                                        Your current trophy level info
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="wb_left_layout_1">
+                                <div id="left_layout_1">
+                                    <div class="col-1">
+                                        <div id="wb_level_icon">
+                                            <img src="img/Silver Trophy.webp" id="level_icon" alt="" width="55" height="55" />
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div id="wb_level">
+                                            <span id="wb_uid8"><strong>301</strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="wb_left_layout_2">
+                                <div id="left_layout_2">
+                                    <div class="col-1">
+                                        <div id="level_percentage">
+                                            <div id="level_percentage-label">0%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="wb_left_layout_3">
+                                <div id="left_layout_3">
+                                    <div class="col-1">
+                                        <div id="wb_level_up_by_TXT">
+                                            <span id="wb_uid9"><strong
+                            >Level up by one type of trophy (Approx.)</strong
+                          ></span
+                        >
+                      </div>
+                      <div id="wb_LayoutGrid13">
+                        <div id="LayoutGrid13">
+                          <div class="col-1">
+                            <input
+                              type="number"
+                              id="total_bronze_to_lvl_up"
+                              name="total_silver_to_lvl_up"
+                              value="0"
+                              readonly
+                              spellcheck="false"
+                            />
+                          </div>
+                          <div class="col-2">
+                            <div id="wb_left_bronze_icon">
+                              <img
+                                src="img/Bronze.webp"
+                                id="left_bronze_icon"
+                                alt=""
+                                width="125"
+                                height="140"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="wb_LayoutGrid11">
+                        <div id="LayoutGrid11">
+                          <div class="col-1">
+                            <input
+                              type="number"
+                              id="total_silver_to_lvl_up"
+                              name="total_silver_to_lvl_up"
+                              value="0"
+                              readonly
+                              spellcheck="false"
+                            />
+                          </div>
+                          <div class="col-2">
+                            <div id="wb_left_silver_icon">
+                              <img
+                                src="img/Silver.webp"
+                                id="left_silver_icon"
+                                alt=""
+                                width="125"
+                                height="147"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="wb_LayoutGrid14">
+                        <div id="LayoutGrid14">
+                          <div class="col-1">
+                            <input
+                              type="number"
+                              id="total_gold_to_lvl_up"
+                              name="total_silver_to_lvl_up"
+                              value="0"
+                              readonly
+                              spellcheck="false"
+                            />
+                          </div>
+                          <div class="col-2">
+                            <div id="wb_left_gold_icon">
+                              <img
+                                src="img/Gold.webp"
+                                id="left_gold_icon"
+                                alt=""
+                                width="125"
+                                height="145"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="wb_LayoutGrid17">
+                        <div id="LayoutGrid17">
+                          <div class="col-1">
+                            <input
+                              type="number"
+                              id="total_plat_to_lvl_up"
+                              name="total_silver_to_lvl_up"
+                              value="0"
+                              readonly
+                              spellcheck="false"
+                            />
+                          </div>
+                          <div class="col-2">
+                            <div id="wb_left_plat_icon">
+                              <img
+                                src="img/Platinum.webp"
+                                id="left_plat_icon"
+                                alt=""
+                                width="125"
+                                height="151"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="col-2-padding">
+                <div id="wb_total_earned_card" class="card">
+                  <div id="total_earned_card-card-body">
+                    <div id="total_earned_card-card-item0">
+                      <i class="fa fa-trophy"></i>
+                    </div>
+                    <div id="total_earned_card-card-item1">TOTAL EARNED</div>
+                    <div id="total_earned_card-card-item2">
+                      The total number of trophies you earned so far
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_mid_bronze_layout">
+                  <div id="mid_bronze_layout">
+                    <div class="col-1">
+                      <div id="wb_mid_bronze_icon">
+                        <img
+                          src="img/Bronze.webp"
+                          id="mid_bronze_icon"
+                          alt=""
+                          width="55"
+                          height="62"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="total_bronze"
+                        name="total_silver_to_lvl_up"
+                        value="0"
+                        readonly
+                        spellcheck="false"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_mid_silver_layout">
+                  <div id="mid_silver_layout">
+                    <div class="col-1">
+                      <div id="wb_mid_silver_icon">
+                        <img
+                          src="img/Silver.webp"
+                          id="mid_silver_icon"
+                          alt=""
+                          width="55"
+                          height="65"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="total_silver"
+                        name="total_silver_to_lvl_up"
+                        value="0"
+                        readonly
+                        spellcheck="false"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_mid_gold_layout">
+                  <div id="mid_gold_layout">
+                    <div class="col-1">
+                      <div id="wb_mid_gold_icon">
+                        <img
+                          src="img/Gold.webp"
+                          id="mid_gold_icon"
+                          alt=""
+                          width="55"
+                          height="64"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="total_gold"
+                        name="total_silver_to_lvl_up"
+                        value="0"
+                        readonly
+                        spellcheck="false"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_mid_plat_layout">
+                  <div id="mid_plat_layout">
+                    <div class="col-1">
+                      <div id="wb_mid_plat_icon">
+                        <img
+                          src="img/Platinum.webp"
+                          id="mid_plat_icon"
+                          alt=""
+                          width="55"
+                          height="66"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="total_plat"
+                        name="total_silver_to_lvl_up"
+                        value="0"
+                        readonly
+                        spellcheck="false"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_mid_total_layout">
+                  <div id="mid_total_layout">
+                    <div class="col-1">
+                      <div id="wb_mid_all_trophies_icon">
+                        <img
+                          src="img/all-trophies.png"
+                          id="mid_all_trophies_icon"
+                          alt=""
+                          width="55"
+                          height="49"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="total_trophies"
+                        name="total_silver_to_lvl_up"
+                        value="0"
+                        readonly
+                        spellcheck="false"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div id="FlexGrid3">
+                  <div class="header">
+                    <hr id="Line3" />
+                    <div id="wb_save_as_text">
+                      <span id="wb_uid10"
+                        ><strong>Export as text file</strong></span
+                      >
+                    </div>
+                    <button
+                      type="submit"
+                      id="save_btn"
+                      name="Save_btn"
+                      value="Save"
+                    >
+                      Save
+                    </button>
+                    <div
+                      id="wb_saved_status"
+                      onscroll="ShowObjectWithEffect('wb_saved_status', 0, 'fade', 1);return false;"
+                    >
+                      <span id="wb_uid11"
+                        >Exported in &quot;My saved trophies&quot;</span
+                      >
+                    </div>
+                  </div>
+                  <div class="footer"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="col-3-padding">
+                <div id="wb_trophy_calc_card" class="card">
+                  <div id="trophy_calc_card-card-body">
+                    <div id="trophy_calc_card-card-item0">
+                      <i class="fa fa-calculator"></i>
+                    </div>
+                    <div id="trophy_calc_card-card-item1">Trophy system</div>
+                    <div id="trophy_calc_card-card-item2">
+                      Calculate how many points gained by trophy type
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_right_bronze_layout">
+                  <div id="right_bronze_layout">
+                    <div class="col-1">
+                      <div id="wb_right_bronze_icon">
+                        <img
+                          src="img/Bronze.webp"
+                          id="right_bronze_icon"
+                          alt=""
+                          width="55"
+                          height="62"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="user_bronze"
+                        name="total_silver_to_lvl_up"
+                        value=""
+                        spellcheck="false"
+                        placeholder="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_right_silver_layout">
+                  <div id="right_silver_layout">
+                    <div class="col-1">
+                      <div id="wb_right_silver_icon">
+                        <img
+                          src="img/Silver.webp"
+                          id="right_silver_icon"
+                          alt=""
+                          width="55"
+                          height="65"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="user_silver"
+                        name="total_silver_to_lvl_up"
+                        value=""
+                        spellcheck="false"
+                        placeholder="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_right_gold_layout">
+                  <div id="right_gold_layout">
+                    <div class="col-1">
+                      <div id="wb_right_gold_icon">
+                        <img
+                          src="img/Gold.webp"
+                          id="right_gold_icon"
+                          alt=""
+                          width="55"
+                          height="64"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="user_gold"
+                        name="total_silver_to_lvl_up"
+                        value=""
+                        spellcheck="false"
+                        placeholder="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_right_plat_layout">
+                  <div id="right_plat_layout">
+                    <div class="col-1">
+                      <div id="wb_right_plat_icon">
+                        <img
+                          src="img/Platinum.webp"
+                          id="right_plat_icon"
+                          alt=""
+                          width="55"
+                          height="66"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="user_plat"
+                        name="total_silver_to_lvl_up"
+                        value=""
+                        spellcheck="false"
+                        placeholder="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <hr id="right_line_divider" />
+                <div id="wb_right_total_points_layout">
+                  <div id="right_total_points_layout">
+                    <div class="col-1">
+                      <div id="wb_trophy_calculator">
+                        <div id="trophy_calculator">
+                          <i class="fa fa-trophy"></i>
+                        </div>
+                      </div>
+                      <div id="wb_points_txt">
+                        <span id="wb_uid12"><strong>Points</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="number" id="calculator_result" name="calculator_result" value="0" readonly spellcheck="false" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+    <div id="bottom_container">
+        <div id="wb_credits_layout_grid">
+            <div id="credits_layout_grid-overlay"></div>
+            <div id="credits_layout_grid">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <div id="wb_dev_credit">
+                        <h6 id="dev_credit">Developed by @OfficialAhmed</h6>
+                    </div>
+                    <div id="wb_twitter_icon">
+                        <a href="javascript:popupwnd('https://twitter.com/OfficialAhmed0','no','no','no','no','no','no','','','','')" target="_self">
+                            <div id="twitter_icon"><i class="fa fa-twitter"></i></div>
+                        </a>
+                    </div>
+                    <div id="wb_github_icon">
+                        <a href="javascript:popupwnd('https://github.com/OfficialAhmed','no','no','no','no','no','no','','','','')" target="_self">
+                            <div id="github_icon"><i class="fa fa-github"></i></div>
+                        </a>
+                    </div>
+                    <div id="wb_paypal_icon">
+                        <a href="https://www.paypal.com/paypalme/Officialahmed0" target="_blank">
+                            <div id="paypal_icon"><i class="fa fa-paypal"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
