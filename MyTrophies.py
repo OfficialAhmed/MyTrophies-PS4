@@ -35,5 +35,18 @@ def init_connection(ip: str, port: str):
     respond = playstation.connect()
     return respond    
 
+<<<<<<< Updated upstream
     
 eel.start('index.html', port=9764, host='localhost',  mode='chrome', size=(700, 600))
+=======
+@eel.expose
+def calculate(trophies):
+    global ps4
+    return ps4.calculate_points(trophies)
+
+@eel.expose
+def get_app_ver():
+    return 3.05
+
+eel.start('index.html', port=9764, host='localhost',  mode='chrome', size=(800, 700))
+>>>>>>> Stashed changes

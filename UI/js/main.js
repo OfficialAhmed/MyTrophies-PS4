@@ -20,6 +20,11 @@ async function connect_pressed() {
     }
 }
 
+window.onload = function() {
+    app_version = 3.04;
+    document.title = "My Trophies v" + app_version;
+};
+
 $(document).ready(function() {
     $("a[href*='#trophies_layout_grid']").click(function(event) {
         event.preventDefault();

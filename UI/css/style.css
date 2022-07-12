@@ -1495,7 +1495,6 @@ select:focus {
     max-width: 50px;
     margin-left: auto;
     margin-right: auto;
-    vertical-align: top;
 }
 
 #wb_mid_total_layout {
@@ -1706,7 +1705,6 @@ select:focus {
     max-width: 50px;
     margin-left: auto;
     margin-right: auto;
-    vertical-align: top;
 }
 
 #wb_level {
@@ -2503,7 +2501,6 @@ ui-widget-content {
     display: block;
     width: 100%;
     height: 100%;
-    vertical-align: top;
     object-fit: scale-down;
 }
 
@@ -3913,8 +3910,6 @@ ui-widget-content {
     font-size: 27px;
 }
 
-#ip_field {}
-
 #user_silver {
     display: block;
     width: 100%;
@@ -4157,8 +4152,6 @@ ui-widget-content {
     font-family: "Arial";
     font-size: 27px;
 }
-
-#port_field {}
 
 #wb_ip_field {
     display: inline-block;
