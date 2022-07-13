@@ -51,8 +51,6 @@ def init_connection(ip: str, port: str):
     respond = ps4.connect(ip, int(port.strip()))
     return respond    
 
-    
-eel.start('index.html', port=9764, host='localhost',  mode='chrome', size=(700, 600))
 
 @eel.expose
 def calculate(trophies):
