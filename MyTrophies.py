@@ -41,7 +41,7 @@ class My_trophies:
         g *= gold_credit
         p *= plat_credit
 
-        return int(b+s+g+p)
+        return b+s+g+p
         
 ps4 = My_trophies()
 
