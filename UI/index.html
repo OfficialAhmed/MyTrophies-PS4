@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title id="page_title">My Trophies v3.02</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,114 +14,157 @@
 
     <script type="text/javascript" src="eel.js"></script>
 
+<<<<<<< Updated upstream
     <link href="css/style.css" rel="stylesheet" />
 </head>
+=======
+    <link href="style.css" rel="stylesheet" />
+  </head>
+>>>>>>> Stashed changes
 
-<body>
+  <body>
     <div id="top_container">
-        <div id="wb_connection_layout_grid">
-            <div id="connection_layout_grid">
-                <div class="col-1">
-                    <div id="wb_Text2">&nbsp;</div>
-                    <div id="FlexGrid2">
-                        <div class="header">
-                            <div id="wb_connection_status">
-                                <h5 id="wb_uid1">NOT CONNECTED</h5>
-                            </div>
-                            <div id="wb_ip_field">
-                                <input type="text" id="ip_field" name="ip_input" value="" maxlength="16" spellcheck="false" placeholder="IP" />
-                                <div class="invalid-feedback">Invalid IP</div>
-                            </div>
-                            <div id="wb_port_field">
-                                <input type="number" id="port_field" name="port_input" value="" maxlength="8" spellcheck="false" placeholder="Port" />
-                                <div class="invalid-feedback">Invalid Port</div>
-                            </div>
-                        </div>
-                        <div class="main" style="padding-top: 10px">
-                            <button type="submit" id="connect_btn" name="connect_btn" onclick="connect_pressed()">
+      <div id="wb_connection_layout_grid">
+        <div id="connection_layout_grid">
+          <div class="col-1">
+            <div id="wb_Text2">&nbsp;</div>
+            <div id="FlexGrid2">
+              <div class="header">
+                <div id="wb_connection_status">
+                  <h5 id="wb_uid1">NOT CONNECTED</h5>
+                </div>
+                <div id="wb_ip_field">
+                  <input
+                    type="text"
+                    id="ip_field"
+                    name="ip_input"
+                    value=""
+                    maxlength="16"
+                    spellcheck="false"
+                    placeholder="IP"
+                  />
+                  <div class="invalid-feedback">Invalid IP</div>
+                </div>
+                <div id="wb_port_field">
+                  <input
+                    type="number"
+                    id="port_field"
+                    name="port_input"
+                    value=""
+                    maxlength="8"
+                    spellcheck="false"
+                    placeholder="Port"
+                  />
+                  <div class="invalid-feedback">Invalid Port</div>
+                </div>
+              </div>
+              <div class="main" style="padding-top: 10px">
+                <button
+                  type="submit"
+                  id="connect_btn"
+                  name="connect_btn"
+                  onclick="connect_pressed()"
+                >
                   Connect
                 </button>
-                        </div>
-                        <div class="sidebar"></div>
-                        <div class="footer" style="padding-bottom: 20px">
-                            <hr id="Line2" />
-                            <button type="submit" id="fetch_btn" name="fetch_btn" value="Fetch" style="margin: 5px 0px 10px 0px">
+              </div>
+              <div class="sidebar"></div>
+              <div class="footer" style="padding-bottom: 20px">
+                <hr id="Line2" />
+                <button
+                  type="submit"
+                  id="fetch_btn"
+                  name="fetch_btn"
+                  value="Fetch"
+                  style="margin: 5px 0px 10px 0px"
+                >
                   Fetch
                 </button>
-                            <select name="users" size="1" id="users" autocomplete="off"></select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div id="FlexGrid1">
-                        <div class="header">
-                            <div id="wb_title">
-                                <span id="wb_uid2"><strong>My Trophies v3.02</strong></span>
-                            </div>
-                            <hr id="Line1" />
-                        </div>
-                        <div class="main">
-                            <div id="wb_instructions">
-                                <ul id="wb_uid3">
-                                    <li id="wb_uid4">Enter PS4 IP and Port</li>
-                                    <li id="wb_uid5">Click on connect</li>
-                                    <li id="wb_uid6">
-                                        If connection is success, click on fetch. A list of users will be generated
-                                    </li>
-                                    <li id="wb_uid7">Pick the desired user</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <select name="users" id="users" onchange="generate_data()">
+                  <option value="user1">User one</option>
+                  <option value="user2">User two</option>
+                </select>
+              </div>
             </div>
+          </div>
+          <div class="col-2">
+            <div id="FlexGrid1">
+              <div class="header">
+                <div id="wb_title">
+                  <span id="wb_uid2"><strong>My Trophies v3.02</strong></span>
+                </div>
+                <hr id="Line1" />
+              </div>
+              <div class="main">
+                <div id="wb_instructions">
+                  <ul id="wb_uid3">
+                    <li id="wb_uid4">Enter PS4 IP and Port</li>
+                    <li id="wb_uid5">Click on connect</li>
+                    <li id="wb_uid6">
+                      If connection is success, click on fetch. A list of users
+                      will be generated
+                    </li>
+                    <li id="wb_uid7">Pick the desired user</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <div id="mid_container">
-        <div id="wb_trophies_layout_grid">
-            <div id="trophies_layout_grid">
-                <div class="row">
+      <div id="wb_trophies_layout_grid">
+        <div id="trophies_layout_grid">
+          <div class="row">
+            <div class="col-1">
+              <div class="col-1-padding">
+                <div id="wb_level_card" class="card">
+                  <div id="level_card-card-body">
+                    <div id="level_card-card-item0">
+                      <i class="fa fa-angle-double-up"></i>
+                    </div>
+                    <div id="level_card-card-item1">LEVEL</div>
+                    <div id="level_card-card-item2">
+                      Your current trophy level info
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_left_layout_1">
+                  <div id="left_layout_1">
                     <div class="col-1">
-                        <div class="col-1-padding">
-                            <div id="wb_level_card" class="card">
-                                <div id="level_card-card-body">
-                                    <div id="level_card-card-item0">
-                                        <i class="fa fa-angle-double-up"></i>
-                                    </div>
-                                    <div id="level_card-card-item1">LEVEL</div>
-                                    <div id="level_card-card-item2">
-                                        Your current trophy level info
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="wb_left_layout_1">
-                                <div id="left_layout_1">
-                                    <div class="col-1">
-                                        <div id="wb_level_icon">
-                                            <img src="img/Silver Trophy.webp" id="level_icon" alt="" width="55" height="55" />
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div id="wb_level">
-                                            <span id="wb_uid8"><strong>301</strong></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="wb_left_layout_2">
-                                <div id="left_layout_2">
-                                    <div class="col-1">
-                                        <div id="level_percentage">
-                                            <div id="level_percentage-label">0%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="wb_left_layout_3">
-                                <div id="left_layout_3">
-                                    <div class="col-1">
-                                        <div id="wb_level_up_by_TXT">
-                                            <span id="wb_uid9"><strong
+                      <div id="wb_level_icon">
+                        <img
+                          src="img/Silver Trophy.webp"
+                          id="level_icon"
+                          alt=""
+                          width="55"
+                          height="55"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <div id="wb_level">
+                        <span id="wb_uid8"><strong>301</strong></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_left_layout_2">
+                  <div id="left_layout_2">
+                    <div class="col-1">
+                      <div id="level_percentage">
+                        <div id="level_percentage-label">0%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="wb_left_layout_3">
+                  <div id="left_layout_3">
+                    <div class="col-1">
+                      <div id="wb_level_up_by_TXT">
+                        <span id="wb_uid9"
+                          ><strong
                             >Level up by one type of trophy (Approx.)</strong
                           ></span
                         >
@@ -527,20 +569,28 @@
                       </div>
                       <div id="wb_points_txt">
                         <span id="wb_uid12"><strong>Points</strong></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <input type="number" id="calculator_result" name="calculator_result" value="0" readonly spellcheck="false" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
+                    <div class="col-2">
+                      <input
+                        type="number"
+                        id="calculator_result"
+                        name="calculator_result"
+                        value="0"
+                        readonly
+                        spellcheck="false"
+                      />
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
     <div id="bottom_container">
+<<<<<<< Updated upstream
         <div id="wb_credits_layout_grid">
             <div id="credits_layout_grid-overlay"></div>
             <div id="credits_layout_grid">
@@ -566,9 +616,44 @@
                     </div>
                 </div>
                 <div class="col-3"></div>
+=======
+      <div id="wb_credits_layout_grid">
+        <div id="credits_layout_grid-overlay"></div>
+        <div id="credits_layout_grid">
+          <div class="col-1"></div>
+          <div class="col-2">
+            <div id="wb_dev_credit">
+              <h6 id="dev_credit">Developed by @OfficialAhmed</h6>
+>>>>>>> Stashed changes
             </div>
+            <div id="wb_twitter_icon">
+              <a
+                href="javascript:popupwnd('https://twitter.com/OfficialAhmed0','no','no','no','no','no','no','','','','')"
+                target="_self"
+              >
+                <div id="twitter_icon"><i class="fa fa-twitter"></i></div>
+              </a>
+            </div>
+            <div id="wb_github_icon">
+              <a
+                href="javascript:popupwnd('https://github.com/OfficialAhmed','no','no','no','no','no','no','','','','')"
+                target="_self"
+              >
+                <div id="github_icon"><i class="fa fa-github"></i></div>
+              </a>
+            </div>
+            <div id="wb_paypal_icon">
+              <a
+                href="https://www.paypal.com/paypalme/Officialahmed0"
+                target="_blank"
+              >
+                <div id="paypal_icon"><i class="fa fa-paypal"></i></div>
+              </a>
+            </div>
+          </div>
+          <div class="col-3"></div>
         </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
