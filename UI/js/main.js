@@ -74,74 +74,11 @@ async function generate_data() {
     "%, rgba(51, 147, 250, 0.845) 100%)";
 }
 
-<<<<<<< Updated upstream
-// window.onload = function() {
-//     app_version = 3.04;
-//     document.title = "My Trophies v" + app_version;
-// };
+window.onload = function () {
+  app_version = 3.05;
+  document.title = "My Trophies v" + app_version;
+};
 
-$(document).ready(function() {
-    $("a[href*='#trophies_layout_grid']").click(function(event) {
-        event.preventDefault();
-        $("html, body")
-            .stop()
-            .animate({
-                    scrollTop: $("#wb_trophies_layout_grid").offset().top - 88,
-                },
-                600,
-                "easeOutCirc"
-            );
-    });
-    $("#ip_field").validate({
-        required: true,
-        bootstrap: true,
-        type: "custom",
-        param: /\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/,
-        length_min: "4",
-        color_text: "#000000",
-        color_hint: "#00FF00",
-        color_error: "#FF0000",
-        color_border: "#808080",
-        nohint: false,
-        font_family: "Arial",
-        font_size: "13px",
-        position: "topleft",
-        offsetx: 0,
-        offsety: 0,
-        effect: "none",
-        error_text: "Invalid IP",
-    });
-    $("#ip_field").inputmask({
-        alias: "ip",
-    });
-    $("#port_field").validate({
-        required: true,
-        bootstrap: true,
-        type: "number",
-        expr_min: ">=",
-        expr_max: "",
-        value_min: "0",
-        value_max: "",
-        length_min: "1",
-        length_max: "8",
-        color_text: "#000000",
-        color_hint: "#00FF00",
-        color_error: "#FF0000",
-        color_border: "#808080",
-        nohint: false,
-        font_family: "Arial",
-        font_size: "13px",
-        position: "topleft",
-        offsetx: 0,
-        offsety: 0,
-        effect: "none",
-        error_text: "Invalid Port",
-    });
-    $("#level_percentage").progressbar({
-        value: 0,
-        change: function() {
-            $("#level_percentage-label").text($(this).progressbar("value") + "%");
-=======
 $(document).ready(function () {
   $("a[href*='#trophies_layout_grid']").click(function (event) {
     event.preventDefault();
@@ -150,7 +87,6 @@ $(document).ready(function () {
       .animate(
         {
           scrollTop: $("#wb_trophies_layout_grid").offset().top - 88,
->>>>>>> Stashed changes
         },
         600,
         "easeOutCirc"

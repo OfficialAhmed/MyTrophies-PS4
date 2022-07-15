@@ -171,13 +171,11 @@ def get_user_info():
     global ps4
     return ps4.get_user_info()
 
-
 @eel.expose
 def get_trophies_to_levelup(): #unimplemented
     global ps4
     return ps4.get_trophies_to_levelup()
     
-
 @eel.expose
 def get_app_ver():
     return 3.05
