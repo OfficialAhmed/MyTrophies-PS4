@@ -28,10 +28,6 @@ async function fetch_pressed() {
   let users = await eel.get_users()();
   console.log(users);
 
-  // for (let i = 0; i < users.length; i++) {
-  //   console.log(users[i]);
-  // }
-
   for (const id in users) {
     let user_name = users[id];
 
