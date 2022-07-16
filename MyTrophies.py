@@ -12,7 +12,7 @@ class My_trophies:
         self.gold_credit = 90
         self.plat_credit = 300
         self.users_dir = "user/home/"
-        self.trophy_dir = "trophy/data/sce_trop/trpsummary.dat"
+        self.trophy_dir = "trophy/data/sce_trop/"
         self.connection = 0
 
     def connect(self, ip: str, port: int) -> tuple:
@@ -105,17 +105,34 @@ class My_trophies:
 
         return b+s+g+p
         
-    def get_all_trophies(self) -> list:
+    def get_all_trophies(self, user) -> list:
         """
         ############################################
             Fetch user trophy data from trophy file
         ############################################
         """
+        def fetch_trophies_from_file(file):
+            import json as js
+            trophies = js.loads(file)
+            trophies = trophies["earnedTrophies"]
+            self.bronze = int(trophies["bronze"])
+            self.silver = int(trophies["silver"])
+            self.gold = int(trophies["gold"])
+            self.plat = int(trophies["platinum"])
+            print(self.bronze)
+            print(self.silver)
+            print(self.gold)
+            print(self.plat)
 
-        self.bronze = 936
-        self.silver = 331
-        self.gold = 122
-        self.plat = 22
+        try:
+            self.ftp.cwd(f"{user}/{self.trophy_dir}")
+            self.ftp.retrlines("RETR trpsummary.dat", fetch_trophies_from_file)
+            self.ftp.cwd("../../../../")
+
+        except Exception as e:
+            print(str(e))
+            return 
+
         total = self.bronze + self.silver + self.gold + self.plat
         return [self.bronze, self.silver, self.gold, self.plat, total]
 
@@ -127,7 +144,7 @@ class My_trophies:
             ##############################################################
             """
             l100 = 5940 
-            l200 = 9000 
+            l200 = 9000
             l300 = 45000 
             l400 = 90000 
             l500 = 135000
@@ -135,7 +152,7 @@ class My_trophies:
             l700 = 225000
             l800 = 270000
             l900 = 315000
-            
+
             # how many points to level up, each level require 
             if points <= l100:
                 multiplier = 100
@@ -233,9 +250,9 @@ def get_points(trophies: list):
     return ps4.get_points(trophies)
 
 @eel.expose
-def get_all_trophies():
+def get_all_trophies(user):
     global ps4
-    return ps4.get_all_trophies()
+    return ps4.get_all_trophies(user)
 
 @eel.expose
 def get_user_info():

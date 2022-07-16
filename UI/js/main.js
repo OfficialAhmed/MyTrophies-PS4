@@ -67,7 +67,7 @@ async function generate_data() {
   //   Fetch user trophy information from Py and display them
   //////////////////////////////////////////////////////////////
 
-  let userName = document.getElementById("users").value;
+  let user_name = document.getElementById("users").value;
 
   let bronze = document.getElementById("total_bronze");
   let silver = document.getElementById("total_silver");
@@ -76,7 +76,7 @@ async function generate_data() {
   let total = document.getElementById("total_trophies");
 
   let trophy_obj = [bronze, silver, gold, plat, total];
-  let trophies = await eel.get_all_trophies()();
+  let trophies = await eel.get_all_trophies(user_name)();
 
   for (let index = 0; index < trophies.length; index++) {
     trophy_obj[index].value = trophies[index];
