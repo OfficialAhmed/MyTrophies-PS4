@@ -1,5 +1,4 @@
 from ftplib import FTP
-from tkinter.messagebox import RETRY
 import eel
 
 eel.init('UI')
@@ -75,6 +74,11 @@ class My_trophies:
 
     def get_user_info(self) -> tuple:
         def get_level_and_percent(points: int) -> int:
+            """
+            ##############################################################
+                Calculate user level and the percent to reach next level
+            ##############################################################
+            """
             l100 = 5940 
             l200 = 9000 
             l300 = 45000 
@@ -124,6 +128,11 @@ class My_trophies:
             return (level, percentage)
 
         def get_icon(level: int) -> str:
+            """
+            ##########################################
+                Determine what level icon to diplay
+            ##########################################
+            """
             if level >= 1 and level <= 299:
                 return "Bronze"
             elif level >= 300 and level <= 599:
@@ -147,8 +156,18 @@ class My_trophies:
         return (level, percentage, icon)
 
     def get_trophies_to_levelup(self):
+        """
+        #########################################################
+            Determine how many each trophy required to level up
+        #########################################################
+        """
         pass
     
+"""
+###########################################################
+   Functions of My trophies instance called by JavaScript
+###########################################################
+"""
 ps4 = My_trophies()
 
 @eel.expose

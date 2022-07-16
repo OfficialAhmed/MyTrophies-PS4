@@ -219,7 +219,7 @@ select:focus {
   text-align: center;
   width: 100%;
   background-color: transparent;
-  background-image: url("img/trophies.jpg");
+  background-image: url("../img/trophies.jpg");
   background-repeat: space;
   background-position: center center;
   background-size: cover;
@@ -1488,18 +1488,6 @@ select:focus {
 }
 
 #mid_all_trophies_icon {
-<<<<<<< Updated upstream:UI/css/style.css
-    border: 0px solid #000000;
-    border-radius: 0px;
-    box-sizing: border-box;
-    padding: 0;
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-=======
   border: 0px solid #000000;
   border-radius: 0px;
   box-sizing: border-box;
@@ -1510,8 +1498,6 @@ select:focus {
   max-width: 50px;
   margin-left: auto;
   margin-right: auto;
-  vertical-align: top;
->>>>>>> Stashed changes:UI/style.css
 }
 
 #wb_mid_total_layout {
@@ -1712,18 +1698,6 @@ select:focus {
 }
 
 #level_icon {
-<<<<<<< Updated upstream:UI/css/style.css
-    border: 0px solid #000000;
-    border-radius: 0px;
-    box-sizing: border-box;
-    padding: 0;
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-=======
   border: 0px solid #000000;
   border-radius: 0px;
   box-sizing: border-box;
@@ -1734,8 +1708,6 @@ select:focus {
   max-width: 50px;
   margin-left: auto;
   margin-right: auto;
-  vertical-align: top;
->>>>>>> Stashed changes:UI/style.css
 }
 
 #wb_level {
@@ -2513,16 +2485,6 @@ select:focus {
 }
 
 #right_bronze_icon {
-<<<<<<< Updated upstream:UI/css/style.css
-    border: 0px solid #000000;
-    border-radius: 0px;
-    box-sizing: border-box;
-    padding: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: scale-down;
-=======
   border: 0px solid #000000;
   border-radius: 0px;
   box-sizing: border-box;
@@ -2531,7 +2493,6 @@ select:focus {
   width: 100%;
   height: 100%;
   object-fit: scale-down;
->>>>>>> Stashed changes:UI/style.css
 }
 
 #wb_right_silver_layout {
@@ -3954,12 +3915,6 @@ select:focus {
   font-size: 27px;
 }
 
-<<<<<<< Updated upstream:UI/css/style.css
-=======
-#ip_field {
-}
-
->>>>>>> Stashed changes:UI/style.css
 #user_silver {
   display: block;
   width: 100%;
@@ -4203,12 +4158,6 @@ select:focus {
   font-size: 27px;
 }
 
-<<<<<<< Updated upstream:UI/css/style.css
-=======
-#port_field {
-}
-
->>>>>>> Stashed changes:UI/style.css
 #wb_ip_field {
   display: inline-block;
   width: 100%;
