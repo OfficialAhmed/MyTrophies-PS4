@@ -1,66 +1,20 @@
-body {
-  background-color: #c0c0c0;
-  color: #000000;
-  font-family: Arial;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 1.1875;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: #0000ff;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: #800080;
-}
-
-a:active {
-  color: #ff0000;
-}
-
-a:hover {
-  color: #0000ff;
-  text-decoration: underline;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-}
-
 #wb_dev_credit {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #000000;
-  border-radius: 0px;
-  box-sizing: border-box;
   vertical-align: top;
-  margin: 0;
   padding: 10px 0 10px 0;
-  text-align: center;
 }
 
 #dev_credit {
-  color: #ffffff;
-  font-family: Arial;
+  color: white;
   font-weight: bold;
-  font-style: normal;
   font-size: 24px;
-  margin: 0;
+
   text-align: center;
 }
 
 #wb_twitter_icon {
   background-color: #2e2e2e;
-  background-image: none;
   border: 2px solid #d0d6d7;
   border-radius: 50%;
-  text-align: center;
   margin: 0 10px 0 0;
   padding: 8px 8px 8px 8px;
   vertical-align: top;
@@ -70,7 +24,6 @@ select:focus {
 
 #wb_twitter_icon:hover {
   background-color: #ffffff;
-  background-image: none;
   border: 2px solid #2e2e2e;
 }
 
@@ -83,7 +36,6 @@ select:focus {
   color: #ffffff;
   display: inline-block;
   font-size: 22px;
-  line-height: 22px;
   vertical-align: middle;
   width: 21px;
 }
@@ -92,36 +44,25 @@ select:focus {
   color: #2e2e2e;
 }
 
-#wb_twitter_icon {
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 500ms linear 0ms;
-  transition: transform 500ms linear 0ms;
-}
-
 #wb_twitter_icon:hover {
-  -webkit-transform: rotate(0deg) scale(1.4, 1.4);
-  transform: rotate(0deg) scale(1.4, 1.4);
-  -webkit-transition: -webkit-transform 500ms linear 0ms;
-  transition: transform 500ms linear 0ms;
+  -webkit-transform: scale(1.4, 1.4);
+  transform: scale(1.4, 1.4);
+  -webkit-transition: -webkit-transform 50ms linear 0ms;
+  transition: transform 300ms linear 0ms;
 }
 
 #wb_github_icon {
   background-color: #2e2e2e;
-  background-image: none;
   border: 2px solid #d0d6d7;
   border-radius: 50%;
-  text-align: center;
   margin: 0 10px 0 0;
   padding: 8px 8px 8px 8px;
-  vertical-align: top;
   display: inline-block;
   position: relative;
 }
 
 #wb_github_icon:hover {
   background-color: #ffffff;
-  background-image: none;
   border: 2px solid #2e2e2e;
 }
 
@@ -143,36 +84,25 @@ select:focus {
   color: #2e2e2e;
 }
 
-#wb_github_icon {
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 500ms linear 0ms;
-  transition: transform 500ms linear 0ms;
-}
-
 #wb_github_icon:hover {
   -webkit-transform: rotate(0deg) scale(1.4, 1.4);
   transform: rotate(0deg) scale(1.4, 1.4);
   -webkit-transition: -webkit-transform 500ms linear 0ms;
-  transition: transform 500ms linear 0ms;
+  transition: transform 300ms linear 0ms;
 }
 
 #wb_paypal_icon {
   background-color: #2e2e2e;
-  background-image: none;
   border: 2px solid #d0d6d7;
   border-radius: 50%;
-  text-align: center;
   margin: 0 10px 0 0;
   padding: 8px 8px 8px 8px;
-  vertical-align: top;
   display: inline-block;
   position: relative;
 }
 
 #wb_paypal_icon:hover {
   background-color: #ffffff;
-  background-image: none;
   border: 2px solid #2e2e2e;
 }
 
@@ -186,7 +116,6 @@ select:focus {
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
-  vertical-align: middle;
   width: 21px;
 }
 
@@ -194,38 +123,23 @@ select:focus {
   color: #2e2e2e;
 }
 
-#wb_paypal_icon {
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 500ms linear 0ms;
-  transition: transform 500ms linear 0ms;
-}
-
 #wb_paypal_icon:hover {
   -webkit-transform: rotate(0deg) scale(1.4, 1.4);
   transform: rotate(0deg) scale(1.4, 1.4);
   -webkit-transition: -webkit-transform 500ms linear 0ms;
-  transition: transform 500ms linear 0ms;
+  transition: transform 300ms linear 0ms;
 }
 
 #wb_credits_layout_grid {
-  clear: both;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
   z-index: 7776;
-  table-layout: fixed;
-  display: table;
-  text-align: center;
   width: 100%;
-  background-color: transparent;
   background-image: url("../img/trophies.jpg");
-  background-repeat: space;
   background-position: center center;
   background-size: cover;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
   margin-right: auto;
   margin-left: auto;
   max-width: 1024px;
@@ -248,7 +162,7 @@ select:focus {
 #credits_layout_grid > .col-2,
 #credits_layout_grid > .col-3 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 16px;
   padding-left: 16px;
@@ -263,10 +177,6 @@ select:focus {
 }
 
 #credits_layout_grid > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 16.66666667%;
   max-width: 16.66666667%;
   -webkit-order: 1;
@@ -287,10 +197,6 @@ select:focus {
 }
 
 #credits_layout_grid > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 66.66666667%;
   max-width: 66.66666667%;
   -webkit-order: 2;
@@ -311,10 +217,6 @@ select:focus {
 }
 
 #credits_layout_grid > .col-3 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 16.66666667%;
   max-width: 16.66666667%;
   -webkit-order: 3;
@@ -346,10 +248,7 @@ select:focus {
 
 #credits_layout_grid-overlay {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+
   background-color: #2e2e2e;
   opacity: 0.78;
 }
@@ -369,12 +268,8 @@ select:focus {
   align-items: center;
   -webkit-align-content: flex-start;
   align-content: flex-start;
-  margin: 0;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  font-size: 0;
 }
 
 #mid_container {
@@ -392,12 +287,8 @@ select:focus {
   align-items: center;
   -webkit-align-content: flex-start;
   align-content: flex-start;
-  margin: 0;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  font-size: 0;
 }
 
 #wb_trophies_layout_grid {
@@ -409,9 +300,8 @@ select:focus {
   width: 100%;
   background-color: #f9f9f9;
   background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #trophies_layout_grid {
@@ -431,7 +321,7 @@ select:focus {
 #trophies_layout_grid > .row > .col-2,
 #trophies_layout_grid > .row > .col-3 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -445,10 +335,6 @@ select:focus {
 }
 
 #trophies_layout_grid > .row > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   width: 33.33333333%;
   text-align: center;
 }
@@ -460,10 +346,6 @@ select:focus {
 }
 
 #trophies_layout_grid > .row > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   width: 33.33333333%;
   text-align: center;
 }
@@ -475,10 +357,6 @@ select:focus {
 }
 
 #trophies_layout_grid > .row > .col-3 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   width: 33.33333333%;
   text-align: center;
 }
@@ -518,19 +396,13 @@ select:focus {
   -webkit-flex-direction: column;
   flex-direction: column;
   box-sizing: border-box;
-  margin: 0;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #dedede;
-  border-radius: 0px;
+
   text-align: left;
 }
 
 #total_earned_card-card-body {
-  padding: 0;
   -webkit-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 0;
 }
 
 #total_earned_card-card-item0 {
@@ -538,11 +410,9 @@ select:focus {
   height: 85px;
   box-sizing: border-box;
   margin: 20px 0 0 20px;
-  padding: 0;
+
   border: 0px solid #bababa;
-  border-radius: 0px;
-  background-color: transparent;
-  background-image: none;
+
   color: #c6e1ff;
   font-family: Arial;
   font-weight: normal;
@@ -560,7 +430,7 @@ select:focus {
 #total_earned_card-card-item1 {
   box-sizing: border-box;
   margin: -36px 0 0 48px;
-  padding: 0;
+
   color: #007bff;
   font-family: Arial;
   font-weight: bold;
@@ -571,8 +441,7 @@ select:focus {
 
 #total_earned_card-card-item2 {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
   color: #606060;
   font-family: Arial;
   font-weight: normal;
@@ -588,19 +457,13 @@ select:focus {
   -webkit-flex-direction: column;
   flex-direction: column;
   box-sizing: border-box;
-  margin: 0;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #dedede;
-  border-radius: 0px;
+
   text-align: left;
 }
 
 #level_card-card-body {
-  padding: 0;
   -webkit-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 0;
 }
 
 #level_card-card-item0 {
@@ -608,11 +471,9 @@ select:focus {
   height: 85px;
   box-sizing: border-box;
   margin: 20px 0 0 20px;
-  padding: 0;
+
   border: 0px solid #bababa;
-  border-radius: 0px;
-  background-color: transparent;
-  background-image: none;
+
   color: #c6e1ff;
   font-family: Arial;
   font-weight: normal;
@@ -630,7 +491,7 @@ select:focus {
 #level_card-card-item1 {
   box-sizing: border-box;
   margin: -36px 0 0 48px;
-  padding: 0;
+
   color: #007bff;
   font-family: Arial;
   font-weight: bold;
@@ -641,8 +502,7 @@ select:focus {
 
 #level_card-card-item2 {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
   color: #606060;
   font-family: Arial;
   font-weight: normal;
@@ -658,19 +518,13 @@ select:focus {
   -webkit-flex-direction: column;
   flex-direction: column;
   box-sizing: border-box;
-  margin: 0;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #dedede;
-  border-radius: 0px;
+
   text-align: left;
 }
 
 #trophy_calc_card-card-body {
-  padding: 0;
   -webkit-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 0;
 }
 
 #trophy_calc_card-card-item0 {
@@ -678,11 +532,9 @@ select:focus {
   height: 85px;
   box-sizing: border-box;
   margin: 20px 0 0 20px;
-  padding: 0;
+
   border: 0px solid #bababa;
-  border-radius: 0px;
-  background-color: transparent;
-  background-image: none;
+
   color: #c6e1ff;
   font-family: Arial;
   font-weight: normal;
@@ -700,7 +552,7 @@ select:focus {
 #trophy_calc_card-card-item1 {
   box-sizing: border-box;
   margin: -36px 0 0 48px;
-  padding: 0;
+
   color: #007bff;
   font-family: Arial;
   font-weight: bold;
@@ -711,8 +563,7 @@ select:focus {
 
 #trophy_calc_card-card-item2 {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
   color: #606060;
   font-family: Arial;
   font-weight: normal;
@@ -736,12 +587,8 @@ select:focus {
   align-items: center;
   -webkit-align-content: flex-start;
   align-content: flex-start;
-  margin: 0;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  font-size: 0;
 }
 
 #wb_connection_layout_grid {
@@ -751,11 +598,9 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
+
   border: 0px solid transparent;
   box-sizing: border-box;
-  margin: 0;
 }
 
 #connection_layout_grid {
@@ -774,7 +619,7 @@ select:focus {
 #connection_layout_grid > .col-1,
 #connection_layout_grid > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -788,8 +633,6 @@ select:focus {
 }
 
 #connection_layout_grid > .col-1 {
-  background-color: transparent;
-  background-image: none;
   border: 2px solid #000000;
   border-radius: 7px;
   flex-basis: 33.33333333%;
@@ -810,10 +653,6 @@ select:focus {
 }
 
 #connection_layout_grid > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 66.66666667%;
   max-width: 66.66666667%;
   display: -webkit-flex;
@@ -841,8 +680,6 @@ select:focus {
 }
 
 #wb_connection_status {
-  background-color: transparent;
-  background-image: none;
   text-align: center;
 }
 
@@ -853,8 +690,7 @@ select:focus {
 #ip_field {
   border: 1px solid #cccccc;
   border-radius: 6px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #000000;
   font-family: Arial;
   font-weight: normal;
@@ -920,8 +756,7 @@ select:focus {
 #port_field {
   border: 1px solid #cccccc;
   border-radius: 6px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #000000;
   font-family: Arial;
   font-weight: normal;
@@ -987,15 +822,14 @@ select:focus {
 #users {
   border: 1px solid #cccccc;
   border-radius: 4px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #000000;
   font-family: Arial;
   font-weight: normal;
   font-style: normal;
   font-size: 13px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   box-sizing: border-box;
 }
 
@@ -1007,12 +841,6 @@ select:focus {
 }
 
 #wb_Text2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #000000;
-  border-radius: 0px;
-  padding: 0;
-  margin: 0;
   text-align: left;
 }
 
@@ -1022,7 +850,7 @@ select:focus {
 
 #wb_Text2 {
   display: inline-block;
-  margin: 0;
+
   width: 79px;
   height: 15px;
 }
@@ -1034,11 +862,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #mid_bronze_layout {
@@ -1049,7 +874,7 @@ select:focus {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0;
+
   margin-right: auto;
   margin-left: auto;
 }
@@ -1057,7 +882,7 @@ select:focus {
 #mid_bronze_layout > .col-1,
 #mid_bronze_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -1071,10 +896,6 @@ select:focus {
 }
 
 #mid_bronze_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -1093,10 +914,6 @@ select:focus {
 }
 
 #mid_bronze_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -1125,15 +942,13 @@ select:focus {
 
 #wb_mid_bronze_icon {
   height: 100%;
-  margin: 0;
+
   vertical-align: top;
 }
 
 #mid_bronze_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
+
   display: block;
   width: 100%;
   height: 100%;
@@ -1147,11 +962,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #mid_silver_layout {
@@ -1162,7 +974,7 @@ select:focus {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0;
+
   margin-right: auto;
   margin-left: auto;
 }
@@ -1170,7 +982,7 @@ select:focus {
 #mid_silver_layout > .col-1,
 #mid_silver_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -1184,10 +996,6 @@ select:focus {
 }
 
 #mid_silver_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -1206,10 +1014,6 @@ select:focus {
 }
 
 #mid_silver_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -1237,15 +1041,12 @@ select:focus {
 }
 
 #wb_mid_silver_icon {
-  margin: 0;
   vertical-align: top;
 }
 
 #mid_silver_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
+
   display: block;
   width: 100%;
   height: auto;
@@ -1261,11 +1062,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #mid_gold_layout {
@@ -1276,7 +1074,7 @@ select:focus {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0;
+
   margin-right: auto;
   margin-left: auto;
 }
@@ -1284,7 +1082,7 @@ select:focus {
 #mid_gold_layout > .col-1,
 #mid_gold_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -1298,10 +1096,6 @@ select:focus {
 }
 
 #mid_gold_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -1320,10 +1114,6 @@ select:focus {
 }
 
 #mid_gold_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -1351,15 +1141,12 @@ select:focus {
 }
 
 #wb_mid_gold_icon {
-  margin: 0;
   vertical-align: top;
 }
 
 #mid_gold_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
+
   display: block;
   width: 100%;
   height: auto;
@@ -1375,11 +1162,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #mid_plat_layout {
@@ -1390,7 +1174,7 @@ select:focus {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0;
+
   margin-right: auto;
   margin-left: auto;
 }
@@ -1398,7 +1182,7 @@ select:focus {
 #mid_plat_layout > .col-1,
 #mid_plat_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -1412,10 +1196,6 @@ select:focus {
 }
 
 #mid_plat_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -1434,10 +1214,6 @@ select:focus {
 }
 
 #mid_plat_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -1465,15 +1241,12 @@ select:focus {
 }
 
 #wb_mid_plat_icon {
-  margin: 0;
   vertical-align: top;
 }
 
 #mid_plat_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
+
   display: block;
   width: 100%;
   height: auto;
@@ -1483,15 +1256,12 @@ select:focus {
 }
 
 #wb_mid_all_trophies_icon {
-  margin: 0;
   vertical-align: top;
 }
 
 #mid_all_trophies_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
+
   display: block;
   width: 100%;
   height: auto;
@@ -1507,11 +1277,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #mid_total_layout {
@@ -1530,7 +1297,7 @@ select:focus {
 #mid_total_layout > .col-1,
 #mid_total_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -1544,10 +1311,6 @@ select:focus {
 }
 
 #mid_total_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -1566,10 +1329,6 @@ select:focus {
 }
 
 #mid_total_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -1603,11 +1362,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #left_layout_1 {
@@ -1626,7 +1382,7 @@ select:focus {
 #left_layout_1 > .col-1,
 #left_layout_1 > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -1640,10 +1396,6 @@ select:focus {
 }
 
 #left_layout_1 > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -1662,10 +1414,6 @@ select:focus {
 }
 
 #left_layout_1 > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -1693,15 +1441,11 @@ select:focus {
 }
 
 #wb_level_icon {
-  margin: 0;
   vertical-align: top;
 }
 
 #level_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
   display: block;
   width: 100%;
   height: auto;
@@ -1711,12 +1455,6 @@ select:focus {
 }
 
 #wb_level {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #000000;
-  border-radius: 0px;
-  padding: 0;
-  margin: 0;
   text-align: left;
 }
 
@@ -1726,7 +1464,7 @@ select:focus {
 
 #wb_level {
   display: block;
-  margin: 0;
+
   box-sizing: border-box;
   width: 100%;
 }
@@ -1738,11 +1476,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #left_layout_2 {
@@ -1753,14 +1488,14 @@ select:focus {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0;
+
   margin-right: auto;
   margin-left: auto;
 }
 
 #left_layout_2 > .col-1 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -1773,10 +1508,6 @@ select:focus {
 }
 
 #left_layout_2 > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 100%;
   max-width: 100%;
   display: -webkit-flex;
@@ -1803,7 +1534,6 @@ select:focus {
 }
 
 #level_percentage {
-  margin: 0;
   position: relative;
 }
 
@@ -1821,8 +1551,7 @@ select:focus {
 
 #level_percentage-label {
   position: absolute;
-  left: 0;
-  top: 0;
+
   width: 100%;
   text-align: center;
   line-height: 18px;
@@ -1841,11 +1570,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #left_layout_3 {
@@ -1863,7 +1589,7 @@ select:focus {
 
 #left_layout_3 > .col-1 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -1876,10 +1602,6 @@ select:focus {
 }
 
 #left_layout_3 > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 100%;
   max-width: 100%;
   display: -webkit-flex;
@@ -1906,12 +1628,6 @@ select:focus {
 }
 
 #wb_level_up_by_TXT {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #000000;
-  border-radius: 0px;
-  padding: 0;
-  margin: 0;
   text-align: center;
 }
 
@@ -1921,7 +1637,7 @@ select:focus {
 
 #wb_level_up_by_TXT {
   display: block;
-  margin: 0;
+
   box-sizing: border-box;
   width: 100%;
 }
@@ -1933,11 +1649,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #LayoutGrid13 {
@@ -1956,7 +1669,7 @@ select:focus {
 #LayoutGrid13 > .col-1,
 #LayoutGrid13 > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -1970,10 +1683,6 @@ select:focus {
 }
 
 #LayoutGrid13 > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 50%;
   max-width: 50%;
   display: -webkit-flex;
@@ -1992,10 +1701,6 @@ select:focus {
 }
 
 #LayoutGrid13 > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 50%;
   max-width: 50%;
   display: -webkit-flex;
@@ -2022,34 +1727,20 @@ select:focus {
   }
 }
 
-#wb_left_bronze_icon {
-  margin: 0;
-  vertical-align: top;
-}
-
 #left_bronze_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
+
   display: block;
   width: 100%;
   height: auto;
   max-width: 25px;
   margin-left: auto;
   margin-right: auto;
-}
-
-#wb_left_silver_icon {
-  margin: 0;
-  vertical-align: top;
 }
 
 #left_silver_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
+
   display: block;
   width: 100%;
   height: auto;
@@ -2058,16 +1749,9 @@ select:focus {
   margin-right: auto;
 }
 
-#wb_left_gold_icon {
-  margin: 0;
-  vertical-align: top;
-}
-
 #left_gold_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
+
   display: block;
   width: 100%;
   height: auto;
@@ -2077,15 +1761,12 @@ select:focus {
 }
 
 #wb_left_plat_icon {
-  margin: 0;
   vertical-align: top;
 }
 
 #left_plat_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
+
   display: block;
   width: 100%;
   height: auto;
@@ -2101,11 +1782,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #LayoutGrid11 {
@@ -2124,7 +1802,7 @@ select:focus {
 #LayoutGrid11 > .col-1,
 #LayoutGrid11 > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -2138,10 +1816,6 @@ select:focus {
 }
 
 #LayoutGrid11 > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 50%;
   max-width: 50%;
   display: -webkit-flex;
@@ -2160,10 +1834,6 @@ select:focus {
 }
 
 #LayoutGrid11 > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 50%;
   max-width: 50%;
   display: -webkit-flex;
@@ -2197,11 +1867,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #LayoutGrid14 {
@@ -2220,7 +1887,7 @@ select:focus {
 #LayoutGrid14 > .col-1,
 #LayoutGrid14 > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -2234,10 +1901,6 @@ select:focus {
 }
 
 #LayoutGrid14 > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 50%;
   max-width: 50%;
   display: -webkit-flex;
@@ -2256,10 +1919,6 @@ select:focus {
 }
 
 #LayoutGrid14 > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 50%;
   max-width: 50%;
   display: -webkit-flex;
@@ -2293,11 +1952,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #LayoutGrid17 {
@@ -2316,7 +1972,7 @@ select:focus {
 #LayoutGrid17 > .col-1,
 #LayoutGrid17 > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -2330,10 +1986,6 @@ select:focus {
 }
 
 #LayoutGrid17 > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 50%;
   max-width: 50%;
   display: -webkit-flex;
@@ -2352,10 +2004,6 @@ select:focus {
 }
 
 #LayoutGrid17 > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 50%;
   max-width: 50%;
   display: -webkit-flex;
@@ -2389,11 +2037,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #right_bronze_layout {
@@ -2404,7 +2049,6 @@ select:focus {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0;
   margin-right: auto;
   margin-left: auto;
 }
@@ -2412,7 +2056,7 @@ select:focus {
 #right_bronze_layout > .col-1,
 #right_bronze_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -2426,10 +2070,6 @@ select:focus {
 }
 
 #right_bronze_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -2448,10 +2088,6 @@ select:focus {
 }
 
 #right_bronze_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -2478,17 +2114,7 @@ select:focus {
   }
 }
 
-#wb_right_bronze_icon {
-  height: 100%;
-  margin: 0;
-  vertical-align: top;
-}
-
 #right_bronze_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
-  box-sizing: border-box;
-  padding: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -2502,11 +2128,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #right_silver_layout {
@@ -2517,7 +2140,6 @@ select:focus {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0;
   margin-right: auto;
   margin-left: auto;
 }
@@ -2525,7 +2147,7 @@ select:focus {
 #right_silver_layout > .col-1,
 #right_silver_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -2539,10 +2161,6 @@ select:focus {
 }
 
 #right_silver_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -2561,10 +2179,6 @@ select:focus {
 }
 
 #right_silver_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -2592,15 +2206,10 @@ select:focus {
 }
 
 #wb_right_silver_icon {
-  margin: 0;
   vertical-align: top;
 }
 
 #right_silver_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
-  box-sizing: border-box;
-  padding: 0;
   display: block;
   width: 100%;
   height: auto;
@@ -2616,11 +2225,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #right_gold_layout {
@@ -2631,7 +2237,6 @@ select:focus {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0;
   margin-right: auto;
   margin-left: auto;
 }
@@ -2639,7 +2244,7 @@ select:focus {
 #right_gold_layout > .col-1,
 #right_gold_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -2653,10 +2258,6 @@ select:focus {
 }
 
 #right_gold_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -2675,10 +2276,6 @@ select:focus {
 }
 
 #right_gold_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -2706,15 +2303,11 @@ select:focus {
 }
 
 #wb_right_gold_icon {
-  margin: 0;
   vertical-align: top;
 }
 
 #right_gold_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
   box-sizing: border-box;
-  padding: 0;
   display: block;
   width: 100%;
   height: auto;
@@ -2730,11 +2323,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #right_plat_layout {
@@ -2745,7 +2335,6 @@ select:focus {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0;
   margin-right: auto;
   margin-left: auto;
 }
@@ -2753,7 +2342,7 @@ select:focus {
 #right_plat_layout > .col-1,
 #right_plat_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -2767,10 +2356,6 @@ select:focus {
 }
 
 #right_plat_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -2789,10 +2374,6 @@ select:focus {
 }
 
 #right_plat_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -2820,15 +2401,10 @@ select:focus {
 }
 
 #wb_right_plat_icon {
-  margin: 0;
   vertical-align: top;
 }
 
 #right_plat_icon {
-  border: 0px solid #000000;
-  border-radius: 0px;
-  box-sizing: border-box;
-  padding: 0;
   display: block;
   width: 100%;
   height: auto;
@@ -2837,34 +2413,19 @@ select:focus {
   margin-right: auto;
 }
 
-#wb_title {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #000000;
-  border-radius: 0px;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-
 #wb_title div {
   text-align: center;
 }
 
 #wb_title {
+  text-align: center;
   display: block;
-  margin: 0;
+
   box-sizing: border-box;
   width: 100%;
 }
 
 #wb_instructions {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #000000;
-  border-radius: 0px;
-  padding: 0;
-  margin: 0;
   text-align: center;
 }
 
@@ -2876,15 +2437,8 @@ select:focus {
   line-height: 19px;
 }
 
-#wb_instructions p,
-#wb_instructions ul {
-  margin: 0;
-  padding: 0;
-}
-
 #wb_instructions {
   display: block;
-  margin: 0;
   box-sizing: border-box;
   width: 100%;
 }
@@ -2893,24 +2447,11 @@ select:focus {
   border-color: #000000;
   border-style: solid;
   border-bottom-width: 1px;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  height: 0 !important;
-  line-height: 0 !important;
-  margin: 0;
-  padding: 0;
 }
 
 #FlexGrid1 {
   display: grid;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-size: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 100px auto;
   grid-template-areas: "header header header header" "main main main main";
@@ -2919,11 +2460,6 @@ select:focus {
 #FlexGrid1 .header {
   display: flex;
   grid-area: header;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
-  padding: 0;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -2939,11 +2475,6 @@ select:focus {
 #FlexGrid1 .main {
   display: flex;
   grid-area: main;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
-  padding: 0;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -2958,13 +2489,7 @@ select:focus {
 
 #FlexGrid2 {
   display: grid;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-size: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 100px auto 100px;
   grid-template-areas: "header header header header" "sideba main main sidebar" "footer footer footer footer";
@@ -2973,11 +2498,6 @@ select:focus {
 #FlexGrid2 .header {
   display: flex;
   grid-area: header;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
-  padding: 0;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -2993,11 +2513,6 @@ select:focus {
 #FlexGrid2 .sideba {
   display: flex;
   grid-area: sideba;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
-  padding: 0;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -3013,11 +2528,6 @@ select:focus {
 #FlexGrid2 .main {
   display: flex;
   grid-area: main;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
-  padding: 0;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -3033,11 +2543,6 @@ select:focus {
 #FlexGrid2 .sidebar {
   display: flex;
   grid-area: sidebar;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
-  padding: 0;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -3053,11 +2558,6 @@ select:focus {
 #FlexGrid2 .footer {
   display: flex;
   grid-area: footer;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
-  padding: 0;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -3074,21 +2574,14 @@ select:focus {
   border-color: #000000;
   border-style: solid;
   border-bottom-width: 1px;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  height: 0 !important;
-  line-height: 0 !important;
-  margin: 0;
-  padding: 0;
-  box-shadow: 0px 0px 1px #000000;
+  display: block;
+  width: 100%;
 }
 
 #total_bronze_to_lvl_up {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3097,7 +2590,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 26px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: right;
 }
 
@@ -3111,8 +2604,7 @@ select:focus {
 #total_silver_to_lvl_up {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3121,7 +2613,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 26px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: right;
 }
 
@@ -3135,8 +2627,7 @@ select:focus {
 #total_gold_to_lvl_up {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3145,7 +2636,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 26px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: right;
 }
 
@@ -3159,8 +2650,7 @@ select:focus {
 #total_plat_to_lvl_up {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3169,7 +2659,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 26px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: right;
 }
 
@@ -3182,13 +2672,9 @@ select:focus {
 
 #FlexGrid3 {
   display: grid;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-size: 0;
+
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 100px auto 100px;
   grid-template-areas: "header header header header" "footer footer footer footer" ". . . .";
@@ -3197,11 +2683,6 @@ select:focus {
 #FlexGrid3 .header {
   display: flex;
   grid-area: header;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
-  padding: 0;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -3217,11 +2698,6 @@ select:focus {
 #FlexGrid3 .footer {
   display: flex;
   grid-area: footer;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
-  padding: 0;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -3235,12 +2711,6 @@ select:focus {
 }
 
 #wb_save_as_text {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #000000;
-  border-radius: 0px;
-  padding: 0;
-  margin: 0;
   text-align: center;
 }
 
@@ -3250,18 +2720,12 @@ select:focus {
 
 #wb_save_as_text {
   display: block;
-  margin: 0;
+
   box-sizing: border-box;
   width: 100%;
 }
 
 #wb_saved_status {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #000000;
-  border-radius: 0px;
-  padding: 0;
-  margin: 0;
   text-align: center;
 }
 
@@ -3271,7 +2735,7 @@ select:focus {
 
 #wb_saved_status {
   display: block;
-  margin: 0;
+
   box-sizing: border-box;
   width: 100%;
 }
@@ -3283,20 +2747,18 @@ select:focus {
   font-style: normal;
   border-style: solid;
   border-width: 1px;
-  margin: 0;
-  padding: 0;
+
   text-align: center;
   vertical-align: top;
 }
 
 #save_btn .ui-button {
   position: absolute;
-  padding: 0;
 }
 
 #save_btn .ui-primary {
   background-image: none !important;
-  text-indent: 0;
+
   display: inline-block;
   font-family: FontAwesome;
   font-style: normal;
@@ -3341,15 +2803,13 @@ select:focus {
   font-style: normal;
   border-style: solid;
   border-width: 1px;
-  margin: 0;
-  padding: 0;
+
   text-align: center;
   vertical-align: top;
 }
 
 #fetch_btn .ui-button {
   position: absolute;
-  padding: 0;
 }
 
 #fetch_btn.ui-corner-all {
@@ -3369,15 +2829,13 @@ select:focus {
   font-style: normal;
   border-style: solid;
   border-width: 1px;
-  margin: 0;
-  padding: 0;
+
   text-align: center;
   vertical-align: top;
 }
 
 #connect_btn .ui-button {
   position: absolute;
-  padding: 0;
 }
 
 #connect_btn.ui-corner-all {
@@ -3393,8 +2851,7 @@ select:focus {
 #total_bronze {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3403,7 +2860,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 26px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3417,8 +2874,7 @@ select:focus {
 #total_silver {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3427,7 +2883,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 33px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3441,8 +2897,7 @@ select:focus {
 #total_gold {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3451,7 +2906,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 33px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3465,8 +2920,7 @@ select:focus {
 #total_plat {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3475,7 +2929,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 33px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3489,8 +2943,7 @@ select:focus {
 #total_trophies {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3499,7 +2952,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 33px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3513,8 +2966,7 @@ select:focus {
 #user_bronze {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3523,7 +2975,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 33px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3537,8 +2989,7 @@ select:focus {
 #user_silver {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3547,7 +2998,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 33px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3561,8 +3012,7 @@ select:focus {
 #user_gold {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3571,7 +3021,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 33px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3585,8 +3035,7 @@ select:focus {
 #user_plat {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3595,7 +3044,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 33px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3609,8 +3058,7 @@ select:focus {
 #calculator_result {
   border: 1px solid #cccccc;
   border-radius: 10px;
-  background-color: #ffffff;
-  background-image: none;
+
   color: #007bfe;
   font-family: "Comic Sans MS";
   font-weight: normal;
@@ -3619,7 +3067,7 @@ select:focus {
   box-sizing: border-box;
   line-height: 33px;
   padding: 4px 4px 4px 4px;
-  margin: 0;
+
   text-align: left;
 }
 
@@ -3631,13 +3079,10 @@ select:focus {
 }
 
 #wb_trophy_calculator {
-  background-color: transparent;
-  background-image: none;
   border: 0px solid #245580;
-  border-radius: 0px;
+
   text-align: center;
-  margin: 0;
-  padding: 0;
+
   vertical-align: top;
   display: inline-block;
   position: relative;
@@ -3668,11 +3113,8 @@ select:focus {
   display: table;
   text-align: center;
   width: 100%;
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #cccccc;
+
   box-sizing: border-box;
-  margin: 0;
 }
 
 #right_total_points_layout {
@@ -3691,7 +3133,7 @@ select:focus {
 #right_total_points_layout > .col-1,
 #right_total_points_layout > .col-2 {
   box-sizing: border-box;
-  font-size: 0;
+
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
@@ -3705,10 +3147,6 @@ select:focus {
 }
 
 #right_total_points_layout > .col-1 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 25%;
   max-width: 25%;
   display: -webkit-flex;
@@ -3727,10 +3165,6 @@ select:focus {
 }
 
 #right_total_points_layout > .col-2 {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #ffffff;
-  border-radius: 0px;
   flex-basis: 75%;
   max-width: 75%;
   display: -webkit-flex;
@@ -3758,12 +3192,6 @@ select:focus {
 }
 
 #wb_points_txt {
-  background-color: transparent;
-  background-image: none;
-  border: 0px solid #000000;
-  border-radius: 0px;
-  padding: 0;
-  margin: 0;
   text-align: center;
 }
 
@@ -3773,7 +3201,7 @@ select:focus {
 
 #wb_points_txt {
   display: block;
-  margin: 0;
+
   box-sizing: border-box;
   width: 100%;
 }
@@ -3782,26 +3210,18 @@ select:focus {
   border-color: #000000;
   border-style: solid;
   border-bottom-width: 1px;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
+
   height: 0 !important;
   line-height: 0 !important;
-  margin: 0;
-  padding: 0;
 }
 
 #Line3 {
   border-color: #000000;
   border-style: solid;
   border-bottom-width: 1px;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
+
   height: 0 !important;
   line-height: 0 !important;
-  margin: 0;
-  padding: 0;
 }
 
 #wb_uid12 {
@@ -3827,13 +3247,6 @@ select:focus {
   z-index: 27;
 }
 
-#wb_left_gold_icon {
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  z-index: 26;
-}
-
 #wb_uid4 {
   margin: 0 0 0 24px;
 }
@@ -3855,13 +3268,6 @@ select:focus {
   width: 100%;
   height: auto;
   z-index: 38;
-}
-
-#wb_left_bronze_icon {
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  z-index: 22;
 }
 
 #wb_level_card {
@@ -3889,13 +3295,6 @@ select:focus {
   z-index: 69;
 }
 
-#wb_right_silver_icon {
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  z-index: 61;
-}
-
 #wb_uid11 {
   color: #000000;
   font-family: "Arial";
@@ -3915,7 +3314,10 @@ select:focus {
   font-size: 27px;
 }
 
-#user_silver {
+#user_silver,
+#user_gold,
+#user_plat,
+#user_bronze {
   display: block;
   width: 100%;
   height: 43px;
@@ -3947,7 +3349,7 @@ select:focus {
   position: absolute;
   left: 441px;
   top: 967px;
-  margin: 0;
+
   border-width: 0;
   z-index: 250;
 }
@@ -3958,13 +3360,6 @@ select:focus {
   height: 22px;
   text-align: center;
   z-index: 140;
-}
-
-#wb_right_gold_icon {
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  z-index: 63;
 }
 
 #Line1 {
@@ -3980,24 +3375,17 @@ select:focus {
   z-index: 10;
 }
 
-#total_gold {
+/* #total_gold {
   display: block;
   width: 100%;
   height: 43px;
   z-index: 43;
-}
+} */
 
 #wb_total_earned_card {
   display: flex;
   width: 100%;
   z-index: 52;
-}
-
-#user_gold {
-  display: block;
-  width: 100%;
-  height: 43px;
-  z-index: 64;
 }
 
 #Line3 {
@@ -4021,13 +3409,6 @@ select:focus {
   z-index: 138;
 }
 
-#user_bronze {
-  display: block;
-  width: 100%;
-  height: 43px;
-  z-index: 60;
-}
-
 #wb_trophy_calc_card {
   display: flex;
   width: 100%;
@@ -4039,13 +3420,6 @@ select:focus {
   width: 155px;
   height: 23px;
   z-index: 50;
-}
-
-#total_plat {
-  display: block;
-  width: 100%;
-  height: 43px;
-  z-index: 45;
 }
 
 #wb_left_plat_icon {
@@ -4060,12 +3434,6 @@ select:focus {
   width: 100%;
   height: auto;
   z-index: 18;
-}
-
-#Line2 {
-  display: block;
-  width: 100%;
-  z-index: 8;
 }
 
 #wb_trophy_calculator {
@@ -4097,20 +3465,6 @@ select:focus {
   z-index: 23;
 }
 
-#wb_right_bronze_icon {
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  z-index: 59;
-}
-
-#wb_left_silver_icon {
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  z-index: 24;
-}
-
 #total_bronze_to_lvl_up {
   display: block;
   width: 100%;
@@ -4118,11 +3472,17 @@ select:focus {
   z-index: 21;
 }
 
-#wb_right_plat_icon {
+#wb_right_plat_icon,
+#wb_left_plat_icon,
+#wb_right_bronze_icon,
+#wb_left_bronze_icon,
+#wb_right_gold_icon,
+#wb_left_gold_icon,
+#wb_left_silver_icon,
+#wb_right_silver_icon {
   display: inline-block;
   width: 100%;
   height: auto;
-  z-index: 65;
 }
 
 #wb_mid_all_trophies_icon {
@@ -4145,13 +3505,6 @@ select:focus {
   z-index: 7;
 }
 
-#user_plat {
-  display: block;
-  width: 100%;
-  height: 43px;
-  z-index: 66;
-}
-
 #wb_uid8 {
   color: #007bff;
   font-family: "Arial";
@@ -4164,18 +3517,14 @@ select:focus {
   z-index: 5;
 }
 
-#total_bronze {
-  display: block;
-  width: 100%;
-  height: 36px;
-  z-index: 39;
-}
-
 #wb_uid7 {
   margin: 0 0 0 24px;
 }
 
-#total_silver {
+#total_silver,
+#total_bronze,
+#total_gold,
+#total_plat {
   display: block;
   width: 100%;
   height: 43px;

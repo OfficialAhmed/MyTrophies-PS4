@@ -44,6 +44,10 @@ async function calculate_points() {
 }
 
 async function generate_data() {
+  ///////////////////////////////////////////////////////////////
+  //   Fetch user trophy information from Py and display them
+  //////////////////////////////////////////////////////////////
+
   let userName = document.getElementById("users").value;
 
   let bronze = document.getElementById("total_bronze");
