@@ -14,10 +14,33 @@ async function connect_pressed() {
     status.innerHTML = "FAILED TO CONNECT";
     status.style.color = "red";
   } else {
+    if (respond[1].includes("Cannot")) {
+      alert(respond[1]);
+    }
+
     status.innerHTML = "CONNECTED";
     status.style.color = "green";
   }
   status.style.fontSize = "15px";
+}
+
+async function fetch_pressed() {
+  let users = await eel.get_users()();
+  console.log(users);
+
+  // for (let i = 0; i < users.length; i++) {
+  //   console.log(users[i]);
+  // }
+
+  for (const id in users) {
+    let user_name = users[id];
+
+    var options = document.getElementById("users");
+    option = new Option(user_name, id);
+    options.appendChild(option);
+
+    console.log(option.value);
+  }
 }
 
 async function calculate_points() {
@@ -81,6 +104,8 @@ async function generate_data() {
 window.onload = function () {
   app_version = 3.05;
   document.title = "My Trophies v" + app_version;
+  document.getElementById("ip_field").value = "192.168.1.35";
+  document.getElementById("port_field").value = 1234;
 };
 
 $(document).ready(function () {

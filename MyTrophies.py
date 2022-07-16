@@ -1,4 +1,5 @@
 from ftplib import FTP
+from io import BytesIO, StringIO
 import eel
 
 eel.init('UI')
@@ -10,10 +11,9 @@ class My_trophies:
         self.silver_credit = 30
         self.gold_credit = 90
         self.plat_credit = 300
-        self.users_dir = ""
-        self.trophy_dir = ""
-        self.ip = ""
-        self.port = 0
+        self.users_dir = "user/home/"
+        self.trophy_dir = "trophy/data/sce_trop/trpsummary.dat"
+        self.connection = 0
 
     def connect(self, ip: str, port: int) -> tuple:
         """
@@ -21,27 +21,74 @@ class My_trophies:
             Init PS4 connection
         #############################
         """
-        try: 
-            self.ip = ip
-            self.port = port
-            self.ftp.connect(self.ip, self.port)
-            return (True, "listening")
-        except TimeoutError:
-            error = "PS4 didn't respond...\n1.Make sure IP and Port entered correctly and PS4 running the FTP\n2.Make sure both PC and PS4 connected on same WI-Fi connection"
-            return (False, error)
-        except Exception as e:
-            error = str(e)
-            return (False, error)
 
-    def login(self) -> None:
+        def is_PS4() -> tuple:
+            """
+            #############################
+                Check if it's PS4 FTP
+            #############################
+            """
+            try:
+                self.ftp.login("", "")
+                self.ftp.cwd(self.users_dir)
+                self.connection = 1
+                return (True, "PS4 listening...")
+            except Exception as e:
+                return (False, str(e))
+
+        if self.connection != 0:
+            return (True, "Cannot make another connection to PS4\nYou're already connected")
+        else:
+            try: 
+                self.ip = ip
+                self.port = port
+                self.ftp.connect(self.ip, self.port)
+                return (is_PS4())
+            except TimeoutError:
+                error = "PS4 didn't respond...\n1.Make sure IP and Port entered correctly and PS4 running the FTP\n2.Make sure both PC and PS4 connected on same WI-Fi connection"
+                return (False, error)
+            except Exception as e:
+                error = str(e)
+                return (False, error)
+
+    def login(self) -> bool:
         """
         ################################
-            Login to and fetch users
+            check connection
         ################################
         """
-        self.ftp.login("", "")
         if self.ftp.getwelcome():
-            print("Connected!")
+            return True
+        else:
+            print("Failed to connect")
+            return False
+
+    def get_users(self) -> dict:
+        """
+        #######################################
+            Get usernames available in system
+        #######################################
+        """
+        if self.login():
+            user_id = []
+            self.ftp.retrlines("LIST ", user_id.append)
+            user_id = [x.strip().split(" ")[-1] for x in user_id if len(x)>4]
+            user_name = []
+
+            def fetch_user_name(name):
+                user_name.append(name.strip("\x00"))
+
+            for id in user_id:
+                self.ftp.cwd(id)
+                try:
+                    self.ftp.retrlines("RETR username.dat", fetch_user_name)
+                except:
+                    fetch_user_name("Unknown\x00")
+                self.ftp.cwd("../")
+            
+            user_name = dict(zip(user_id, user_name))
+            return user_name
+        return dict()
 
     def get_points(self, trophies: list) -> int:
         """
@@ -174,6 +221,11 @@ ps4 = My_trophies()
 def init_connection(ip: str, port: str) -> tuple:
     global ps4
     return ps4.connect(ip, int(port.strip()))    
+
+@eel.expose
+def get_users():
+    global ps4
+    return ps4.get_users()
 
 @eel.expose
 def get_points(trophies: list):
