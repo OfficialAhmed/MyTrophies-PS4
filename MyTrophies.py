@@ -111,6 +111,8 @@ class My_trophies:
             Fetch user trophy data from trophy file
         ############################################
         """
+        self.bronze, self.silver, self.gold, self.plat = 0,0,0,0
+
         def fetch_trophies_from_file(file):
             import json as js
             trophies = js.loads(file)
@@ -119,11 +121,6 @@ class My_trophies:
             self.silver = int(trophies["silver"])
             self.gold = int(trophies["gold"])
             self.plat = int(trophies["platinum"])
-            print(self.bronze)
-            print(self.silver)
-            print(self.gold)
-            print(self.plat)
-
         try:
             self.ftp.cwd(f"{user}/{self.trophy_dir}")
             self.ftp.retrlines("RETR trpsummary.dat", fetch_trophies_from_file)
@@ -131,7 +128,7 @@ class My_trophies:
 
         except Exception as e:
             print(str(e))
-            return 
+            return e
 
         total = self.bronze + self.silver + self.gold + self.plat
         return [self.bronze, self.silver, self.gold, self.plat, total]
