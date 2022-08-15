@@ -1,3 +1,5 @@
+var isFetched = false; // Allow one fetch only
+
 async function connect_pressed() {
   /////////////////////////////////
   //   Check PS4 FTP connection
@@ -28,14 +30,20 @@ async function fetch_pressed() {
   let users = await eel.get_users()();
   var options = document.getElementById("users");
 
-  option = new Option("Pick a user", (defaultSelected = true));
-  options.appendChild(option);
-
-  for (const id in users) {
-    let user_name = users[id];
-
-    option = new Option(user_name, id);
+  ////////////////////////////////////////////////
+  //   Get user names from console
+  ////////////////////////////////////////////////
+  if (isFetched == false) {
+    option = new Option("Pick a user", (defaultSelected = true));
     options.appendChild(option);
+
+    for (const id in users) {
+      let user_name = users[id];
+
+      option = new Option(user_name, id);
+      options.appendChild(option);
+    }
+    isFetched = true;
   }
 }
 
