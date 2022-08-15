@@ -1,5 +1,4 @@
 from ftplib import FTP
-from io import BytesIO, StringIO
 import eel
 
 eel.init('UI')
@@ -14,6 +13,29 @@ class My_trophies:
         self.users_dir = "user/home/"
         self.trophy_dir = "trophy/data/sce_trop/"
         self.connection = 0
+
+        # Levels 1 - 99: 60 points
+        # Levels 100 - 199: 90 points
+        # Levels 200 - 299: 450 points
+        # Levels 300 - 399: 900 points
+        # Levels 400 - 499: 1350 points
+        # Levels 500 - 599: 1800 points
+        # Levels 600 - 699: 2250 points
+        # Levels 700 - 799: 2700 points
+        # Levels 800 - 899: 3150 points
+        # Levels 900 - 999: 3600 points
+        # Credits to https://forum.psnprofiles.com/topic/96498-new-platinum-trophy-value-and-trophy-level-formula/
+
+        self.l1 = 6000  # Levels 1 - 99
+        self.l2 = 9000  
+        self.l3 = 45000 
+        self.l4 = 90000 
+        self.l5 = 135000
+        self.l6 = 180000
+        self.l7 = 225000
+        self.l8 = 270000
+        self.l9 = 315000  # Levels 900 - 999
+        self.lvl = (self.l1, self.l2, self.l3, self.l4, self.l5, self.l6, self.l7, self.l8, self.l9)
 
     def connect(self, ip: str, port: int) -> tuple:
         """
@@ -37,7 +59,7 @@ class My_trophies:
                 return (False, str(e))
 
         if self.connection != 0:
-            return (True, "Cannot make another connection to PS4\nYou're already connected")
+            return (True, "You've been already connected\nPS4 FTP refuses multiple connection \n*Reopen MyTrophies if you experience any issues after this message.\n")
         else:
             try: 
                 self.ip = ip
@@ -127,103 +149,175 @@ class My_trophies:
             self.ftp.cwd("../../../../")
 
         except Exception as e:
+            # Trophies dir not found
             print(str(e))
-            return e
 
         total = self.bronze + self.silver + self.gold + self.plat
         return [self.bronze, self.silver, self.gold, self.plat, total]
 
     def get_user_info(self) -> tuple:
+
+        def convert_points_to_level(points: int) -> int:
+            """
+            ########################################################################################
+                                    Convert user points to level algo
+            ########################################################################################
+            """
+            
+            #####################################################################################################
+            ######    Take out required levels' points to determine 100th number of the user level  #############
+            #####################################################################################################
+
+            # one_level_up is the required points to level up by one
+            # level_100th is the user level in 100th
+            level_100th = 0
+            one_level_up = self.l1
+            for l in self.lvl:
+                if points - l <= 0:
+                    one_level_up = l
+                    break
+                
+                points -= l
+                level_100th += 100
+                one_level_up = l
+
+            #####################################################################################################
+            ######             determine the 10th number by taking out one_level_up points          #############
+            #####################################################################################################
+            
+            one_level_up /= 100 
+            level_10th = int(points / one_level_up)
+            return level_100th + level_10th
+
+
         def get_level_and_percent(points: int) -> int:
             """
             ##############################################################
-                Calculate user level and the percent to reach next level
+                Calculate user level and the percent to level up
             ##############################################################
             """
-            l100 = 5940 
-            l200 = 9000
-            l300 = 45000 
-            l400 = 90000 
-            l500 = 135000
-            l600 = 180000
-            l700 = 225000
-            l800 = 270000
-            l900 = 315000
 
             # how many points to level up, each level require 
-            if points <= l100:
-                multiplier = 100
-                level_points = l100
-            elif points <= l200:
-                multiplier = 200 
-                level_points = l200
-            elif points <= l300:
-                multiplier = 300 
-                level_points = l300
-            elif points <= l400:
-                multiplier = 400 
-                level_points = l400
-            elif points <= l500:
-                multiplier = 500
-                level_points = l500
-            elif points <= l600:
-                multiplier = 600
-                level_points = l600
-            elif points <= l700:
-                multiplier = 700
-                level_points = l700
-            elif points <= l800:
-                multiplier = 800
-                level_points = l800
-            elif points <= l900:
-                multiplier = 900
-                level_points = l900
+            if points <= self.l1:
+                self.level_points = self.l1
+            elif points <= self.l2:
+                self.level_points = self.l2
+            elif points <= self.l3:
+                self.level_points = self.l3
+            elif points <= self.l4:
+                self.level_points = self.l4
+            elif points <= self.l5:
+                self.level_points = self.l5
+            elif points <= self.l6:
+                self.level_points = self.l6
+            elif points <= self.l7:
+                self.level_points = self.l7
+            elif points <= self.l8:
+                self.level_points = self.l8
+            elif points <= self.l9:
+                self.level_points = self.l9
             else:
-                multiplier = 1000
-                level_points = 360,000
+                self.level_points = 360,000
 
-            count = (points / level_points) * multiplier
-            level = int(count)
-            percentage = int((count - level) * 100)
+            count = points / self.level_points
+            self.level = convert_points_to_level(points)
+            self.percentage = int(count * 100)
 
-            return (level, percentage)
+            return (self.level, self.percentage)
 
         def get_icon(level: int) -> str:
             """
-            ##########################################
-                Determine what level icon to diplay
-            ##########################################
+            ####################################################
+                    Determine what level icon to diplay
+            ####################################################
             """
+            icon = ""
             if level >= 1 and level <= 299:
-                return "Bronze"
+                if level >= 200:
+                    icon = "Bronze3" 
+                elif level >= 100:
+                    icon = "Bronze2"
+                else:
+                    icon = "Bronze1"
+                    
             elif level >= 300 and level <= 599:
-                return "Silver"
-            elif level >= 600 and level <= 998:
-                return "Gold"
-            else:
-                return "Platinum"
+                if level >= 500:
+                    icon = "Silver3" 
+                elif level >= 400:
+                    icon = "Silver2"
+                else:
+                    icon = "Silver1"
 
-        points = self.get_points([
+            elif level >= 600 and level <= 998:
+                if level >= 800:
+                    icon = "Gold3" 
+                elif level >= 700:
+                    icon = "Gold2"
+                else:
+                    icon = "Gold1"
+
+            else:
+                icon = "Platinum1"
+
+            return icon
+
+        self.user_accumulated_points = self.get_points([
             self.bronze,
             self.silver,
             self.gold,
             self.plat
         ])
 
-        level_and_percentage = get_level_and_percent(points)
+        level_and_percentage = get_level_and_percent(self.user_accumulated_points)
         level, percentage = level_and_percentage
         icon = get_icon(level)
 
         return (level, percentage, icon)
 
-    def get_trophies_to_levelup(self):
+    def get_trophies_to_levelup(self) -> list:
         """
         #########################################################
             Determine how many each trophy required to level up
         #########################################################
         """
-        pass
-    
+        points_left = (self.level_points - self.user_accumulated_points)//100
+
+        bronze = points_left // self.bronze_credit
+        silver = points_left // self.silver_credit
+        gold = points_left // self.gold_credit
+        platinum = points_left // self.plat_credit
+
+        # NOTE: if any trophy equal to 0, JS will increment it by 1
+        return [bronze, silver, gold, platinum]
+
+    def export_file(self, username) -> str:
+        import datetime as dt
+
+        t = dt.datetime.now()
+        timestamp = str(t.day) + "_" + str(t.month) + "_" + str(t.year)[2:] + " " + str(t.hour) + "_" + str(t.minute) + "_" + str(t.second)
+        try:
+            with open(f"{username} ({timestamp}).txt", "w") as file:
+                content = f"""
+                * GENERATED FILE: MyTrophies v3 by @Officialahmed0
+
+                Level: {self.level}
+                Total Trophies: {self.bronze + self.silver + self.gold + self.plat}
+                Total Points: {self.user_accumulated_points}
+                ___________________________________________________
+                Total Bronze: {self.bronze}
+                Total Silver: {self.silver}
+                Total Gold: {self.gold}
+                Total Platinums: {self.plat}
+
+                Time Stamp: {timestamp.replace("_", ":")}
+                """
+                file.write(content)
+                status = "success"
+        except Exception as e:
+            status = str(e)
+
+        return status
+
 """
 ###########################################################
    Functions of My trophies instance called by JavaScript
@@ -257,9 +351,14 @@ def get_user_info():
     return ps4.get_user_info()
 
 @eel.expose
-def get_trophies_to_levelup(): #unimplemented
+def get_trophies_to_levelup():
     global ps4
     return ps4.get_trophies_to_levelup()
+
+@eel.expose
+def export_file(username):
+    global ps4
+    return ps4.export_file(username)
     
 @eel.expose
 def get_app_ver():

@@ -26,16 +26,16 @@ async function connect_pressed() {
 
 async function fetch_pressed() {
   let users = await eel.get_users()();
-  console.log(users);
+  var options = document.getElementById("users");
+
+  option = new Option("Pick a user", (defaultSelected = true));
+  options.appendChild(option);
 
   for (const id in users) {
     let user_name = users[id];
 
-    var options = document.getElementById("users");
     option = new Option(user_name, id);
     options.appendChild(option);
-
-    console.log(option.value);
   }
 }
 
@@ -90,17 +90,55 @@ async function generate_data() {
 
   document.getElementById("wb_uid8").innerHTML = level + "";
   document.getElementById("level_percentage-label").innerHTML = percent + "%";
+  document.getElementById("level_icon").src =
+    "img/level badge/" + icon + ".webp";
 
   document.getElementById("level_percentage").style.backgroundImage =
     "linear-gradient( to left, white " +
     percent_color +
     "%, rgba(51, 147, 250, 0.845) 100%)";
+
+  get_levelup_trophies();
+}
+
+async function get_levelup_trophies() {
+  let trophies = await eel.get_trophies_to_levelup()();
+  bronze = document.getElementById("total_bronze_to_lvl_up");
+  silver = document.getElementById("total_silver_to_lvl_up");
+  gold = document.getElementById("total_gold_to_lvl_up");
+  plat = document.getElementById("total_plat_to_lvl_up");
+
+  let reference = [bronze, silver, gold, plat];
+
+  for (let index = 0; index < trophies.length; index++) {
+    if (trophies[index] == 0) {
+      reference[index].value = 1;
+    } else {
+      reference[index].value = trophies[index];
+    }
+  }
+}
+
+async function export_file() {
+  let users = document.getElementById("users");
+  let user = users.options[users.selectedIndex].text;
+  let status = await eel.export_file(user)();
+
+  if (status == "success") {
+    alert("FILE EXPORTED SUCCESSFULLY!");
+  } else {
+    alert(
+      "ERROR: Something went wrong while exporting.\nErrorID: " +
+        status +
+        "\nPlease contact @Officialahmed0."
+    );
+  }
 }
 
 window.onload = function () {
   app_version = 3.05;
   document.title = "My Trophies v" + app_version;
-  document.getElementById("ip_field").value = "192.168.1.35";
+  document.getElementById("ip_field").value = "192.168.2.3";
   document.getElementById("port_field").value = 1234;
 };
 

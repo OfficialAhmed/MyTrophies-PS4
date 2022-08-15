@@ -11,10 +11,10 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/validation.js"></script>
     <script src="js/main.js"></script>
-
     <script type="text/javascript" src="eel.js"></script>
-
+  
     <link href="css/style.css" rel="stylesheet" />
+    <!-- @Officialahmed0 -->
 </head>
 
   <body>
@@ -96,7 +96,7 @@
                     <li id="wb_uid4">Enter PS4 IP and Port</li>
                     <li id="wb_uid5">Click on connect</li>
                     <li id="wb_uid6">
-                      If connection is success, click on fetch. A list of users
+                      When connected, click on fetch. A list of users
                       will be generated
                     </li>
                     <li id="wb_uid7">Pick the desired user</li>
@@ -130,7 +130,7 @@
                     <div class="col-1">
                       <div id="wb_level_icon">
                         <img
-                          src="img/Silver Trophy.webp"
+                          src="img/level badge/Platinum1.webp"
                           id="level_icon"
                           alt=""
                           width="55"
@@ -140,7 +140,7 @@
                     </div>
                     <div class="col-2">
                       <div id="wb_level">
-                        <span id="wb_uid8"><strong>301</strong></span>
+                        <span id="wb_uid8"><strong>0</strong></span>
                       </div>
                     </div>
                   </div>
@@ -411,8 +411,8 @@
                   <div class="header">
                     <hr id="Line3" />
                     <div id="wb_save_as_text">
-                      <span id="wb_uid10"
-                        ><strong>Export as text file</strong></span
+                      <span id="wb_uid10">
+                        <strong>Export as text file</strong></span
                       >
                     </div>
                     <button
@@ -420,17 +420,10 @@
                       id="save_btn"
                       name="Save_btn"
                       value="Save"
-                    >
+                      onclick="export_file()">
                       Save
                     </button>
-                    <div
-                      id="wb_saved_status"
-                      onscroll="ShowObjectWithEffect('wb_saved_status', 0, 'fade', 1);return false;"
-                    >
-                      <span id="wb_uid11"
-                        >Exported in &quot;My saved trophies&quot;</span
-                      >
-                    </div>
+                    
                   </div>
                   <div class="footer"></div>
                 </div>
