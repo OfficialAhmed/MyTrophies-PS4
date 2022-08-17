@@ -165,7 +165,7 @@ class My_trophies:
             """
             
             #####################################################################################################
-            ######    Take out required levels' points to determine 100th number of the user level  #############
+            ######    Take out required levels' points to determine 100th number of the user level    ###########
             #####################################################################################################
 
             # one_level_up is the required points to level up by one
@@ -193,7 +193,7 @@ class My_trophies:
         def get_level_and_percent(points: int) -> int:
             """
             ##############################################################
-                Calculate user level and the percent to level up
+                    Calculate user level and the percent to level up
             ##############################################################
             """
 

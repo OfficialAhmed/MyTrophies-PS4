@@ -30,9 +30,9 @@ async function fetch_pressed() {
   let users = await eel.get_users()();
   var options = document.getElementById("users");
 
-  ////////////////////////////////////////////////
-  //   Get user names from console
-  ////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////
+  //               Get user names from console
+  /////////////////////////////////////////////////////////////////
   if (isFetched == false) {
     option = new Option("Pick a user", (defaultSelected = true));
     options.appendChild(option);
@@ -48,9 +48,9 @@ async function fetch_pressed() {
 }
 
 async function calculate_points() {
-  /////////////////////////////////////////////////////
-  //   calculate trophy points any time user onchange
-  /////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////
+  //                  calculate trophy points any time user onchange
+  ///////////////////////////////////////////////////////////////////////////////////////
 
   let bronze = parseInt(document.getElementById("user_bronze").value);
   let silver = parseInt(document.getElementById("user_silver").value);
@@ -71,9 +71,9 @@ async function calculate_points() {
 }
 
 async function generate_data() {
-  ///////////////////////////////////////////////////////////////
-  //   Fetch user trophy information from Py and display them
-  //////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
+  //    Fetch user trophy information from Py and display them
+  /////////////////////////////////////////////////////////////////
 
   let user_name = document.getElementById("users").value;
 
@@ -94,13 +94,11 @@ async function generate_data() {
   let level = user_info[0];
   let percent = user_info[1];
   let percent_color = 100 - percent;
-  let icon = user_info[2];
+  let icon = "img/level badge/" + user_info[2] + ".webp";
 
   document.getElementById("wb_uid8").innerHTML = level + "";
   document.getElementById("level_percentage-label").innerHTML = percent + "%";
-  document.getElementById("level_icon").src =
-    "img/level badge/" + icon + ".webp";
-
+  document.getElementById("level_icon").src = icon;
   document.getElementById("level_percentage").style.backgroundImage =
     "linear-gradient( to left, white " +
     percent_color +
