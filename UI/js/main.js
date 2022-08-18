@@ -142,10 +142,11 @@ async function export_file() {
 }
 
 window.onload = function () {
-  app_version = 3.05;
+  app_version = "3.07 alpha";
   document.title = "My Trophies v" + app_version;
-  document.getElementById("ip_field").value = "192.168.2.3";
-  document.getElementById("port_field").value = 1234;
+  document.getElementById("wb_uid2").innerHTML = "My Trophies v" + app_version;
+  // document.getElementById("ip_field").value = "192.168.1.50";
+  // document.getElementById("port_field").value = 2121;
 };
 
 $(document).ready(function () {

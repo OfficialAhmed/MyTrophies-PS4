@@ -1,4 +1,5 @@
 from ftplib import FTP
+from typing import final
 import eel
 
 eel.init('UI')
@@ -82,7 +83,6 @@ class My_trophies:
         if self.ftp.getwelcome():
             return True
         else:
-            print("Failed to connect")
             return False
 
     def get_users(self) -> dict:
@@ -95,18 +95,18 @@ class My_trophies:
             user_id = []
             self.ftp.retrlines("LIST ", user_id.append)
             user_id = [x.strip().split(" ")[-1] for x in user_id if len(x)>4]
+            user_id = user_id[2:] #[FIX v3.07] ignore first 2 FTP commands
             user_name = []
 
             def fetch_user_name(name):
                 user_name.append(name.strip("\x00"))
 
             for id in user_id:
-                self.ftp.cwd(id)
+                self.ftp.cwd("/" + self.users_dir + id + "/")
                 try:
                     self.ftp.retrlines("RETR username.dat", fetch_user_name)
                 except:
                     fetch_user_name("Unknown\x00")
-                self.ftp.cwd("../")
             
             user_name = dict(zip(user_id, user_name))
             return user_name
@@ -144,13 +144,15 @@ class My_trophies:
             self.gold = int(trophies["gold"])
             self.plat = int(trophies["platinum"])
         try:
-            self.ftp.cwd(f"{user}/{self.trophy_dir}")
+            self.ftp.cwd(f"/{self.users_dir}/{user}/{self.trophy_dir}")
             self.ftp.retrlines("RETR trpsummary.dat", fetch_trophies_from_file)
-            self.ftp.cwd("../../../../")
 
         except Exception as e:
             # Trophies dir not found
             print(str(e))
+        finally:
+            self.ftp.cwd("/")
+
 
         total = self.bronze + self.silver + self.gold + self.plat
         return [self.bronze, self.silver, self.gold, self.plat, total]
@@ -300,6 +302,7 @@ class My_trophies:
                 content = f"""
                 * GENERATED FILE: MyTrophies v3 by @Officialahmed0
 
+                Account: {username}
                 Level: {self.level}
                 Total Trophies: {self.bronze + self.silver + self.gold + self.plat}
                 Total Points: {self.user_accumulated_points}
