@@ -13,7 +13,7 @@ Trophy hunter with a jailbroken PS4? this might be helpful for you. A Trophy cal
 
 ### *Update v3.07 Notes:-*
 
-- **[Fixed]** *Cannot read multiple users*
+- **[**MAJOR BUG FIXED**]** *Nothing happens on 'fetch', caused by reading multiple users*
 - **[Fixed]** *Error file directory when changing accounts many times*
 - **[Fixed]** *IP placeholder*
 
