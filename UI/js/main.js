@@ -1,4 +1,5 @@
 var isFetched = false; // Allow one fetch only
+var user_trophies = [0, 0, 0, 0]; //user trophy input
 
 async function connect_pressed() {
   /////////////////////////////////
@@ -57,17 +58,21 @@ async function calculate_points() {
   let gold = parseInt(document.getElementById("user_gold").value);
   let plat = parseInt(document.getElementById("user_plat").value);
 
-  trophies = [bronze, silver, gold, plat];
+  user_trophies = [bronze, silver, gold, plat];
 
-  for (let index = 0; index < trophies.length; index++) {
-    if (isNaN(trophies[index])) {
-      trophies[index] = 0;
+  for (let index = 0; index < user_trophies.length; index++) {
+    if (isNaN(user_trophies[index])) {
+      user_trophies[index] = 0;
     }
   }
 
   // wait for Python to return the result
-  result = await eel.get_points(trophies)();
+  result = await eel.get_points(user_trophies)();
   document.getElementById("calculator_result").value = result;
+
+  // Recalculate trophy statistics user onchange
+  generate_data();
+  get_levelup_trophies();
 }
 
 async function generate_data() {
@@ -75,22 +80,39 @@ async function generate_data() {
   //    Fetch user trophy information from Py and display them
   /////////////////////////////////////////////////////////////////
 
-  let user_name = document.getElementById("users").value;
-
   let bronze = document.getElementById("total_bronze");
   let silver = document.getElementById("total_silver");
   let gold = document.getElementById("total_gold");
   let plat = document.getElementById("total_plat");
   let total = document.getElementById("total_trophies");
 
-  let trophy_obj = [bronze, silver, gold, plat, total];
-  let trophies = await eel.get_all_trophies(user_name)();
+  let user_name = document.getElementById("users").value;
 
+  let user_bronze = user_trophies[0];
+  let user_silver = user_trophies[1];
+  let user_gold = user_trophies[2];
+  let user_plat = user_trophies[3];
+
+  let trophies = await eel.get_all_trophies(
+    user_name,
+    user_bronze,
+    user_silver,
+    user_gold,
+    user_plat
+  )();
+
+  // Display data on page
+  let trophy_obj = [bronze, silver, gold, plat, total];
   for (let index = 0; index < trophies.length; index++) {
     trophy_obj[index].value = trophies[index];
   }
 
-  let user_info = await eel.get_user_info()();
+  let user_info = await eel.get_user_info(
+    user_bronze,
+    user_silver,
+    user_gold,
+    user_plat
+  )();
   let level = user_info[0];
   let percent = user_info[1];
   let percent_color = 100 - percent;
@@ -145,8 +167,9 @@ window.onload = function () {
   app_version = "3.07 alpha";
   document.title = "My Trophies v" + app_version;
   document.getElementById("wb_uid2").innerHTML = "My Trophies v" + app_version;
-  // document.getElementById("ip_field").value = "192.168.1.50";
-  // document.getElementById("port_field").value = 2121;
+
+  document.getElementById("ip_field").value = "192.168.1.35";
+  document.getElementById("port_field").value = 1234;
 };
 
 $(document).ready(function () {

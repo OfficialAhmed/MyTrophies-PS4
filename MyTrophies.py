@@ -127,7 +127,7 @@ class My_trophies:
 
         return b+s+g+p
         
-    def get_all_trophies(self, user) -> list:
+    def get_all_trophies(self, user, user_bronze: int, user_silver: int, user_gold: int, user_plat: int) -> list:
         """
         ############################################
             Fetch user trophy data from trophy file
@@ -139,16 +139,15 @@ class My_trophies:
             import json as js
             trophies = js.loads(file)
             trophies = trophies["earnedTrophies"]
-            self.bronze = int(trophies["bronze"])
-            self.silver = int(trophies["silver"])
-            self.gold = int(trophies["gold"])
-            self.plat = int(trophies["platinum"])
+            self.bronze = int(trophies["bronze"]) + user_bronze
+            self.silver = int(trophies["silver"]) + user_silver
+            self.gold = int(trophies["gold"]) + user_gold
+            self.plat = int(trophies["platinum"]) + user_plat
         try:
             self.ftp.cwd(f"/{self.users_dir}/{user}/{self.trophy_dir}")
             self.ftp.retrlines("RETR trpsummary.dat", fetch_trophies_from_file)
 
         except Exception as e:
-            # Trophies dir not found
             print(str(e))
         finally:
             self.ftp.cwd("/")
@@ -157,8 +156,7 @@ class My_trophies:
         total = self.bronze + self.silver + self.gold + self.plat
         return [self.bronze, self.silver, self.gold, self.plat, total]
 
-    def get_user_info(self) -> tuple:
-
+    def get_user_info(self, user_bronze: int, user_silver: int, user_gold: int, user_plat: int) -> tuple:
         def convert_points_to_level(points: int) -> int:
             """
             ########################################################################################
@@ -201,29 +199,41 @@ class My_trophies:
 
             # how many points to level up, each level require 
             if points <= self.l1:
-                self.level_points = self.l1
+                self.milestone = self.l1
+                self.next_milestone = self.l2
             elif points <= self.l2:
-                self.level_points = self.l2
+                self.milestone = self.l2
+                self.next_milestone = self.l3
             elif points <= self.l3:
-                self.level_points = self.l3
+                self.milestone = self.l3
+                self.next_milestone = self.l4
             elif points <= self.l4:
-                self.level_points = self.l4
+                self.milestone = self.l4
+                self.next_milestone = self.l5
             elif points <= self.l5:
-                self.level_points = self.l5
+                self.milestone = self.l5
+                self.next_milestone = self.l6
             elif points <= self.l6:
-                self.level_points = self.l6
+                self.milestone = self.l6
+                self.next_milestone = self.l7
             elif points <= self.l7:
-                self.level_points = self.l7
+                self.milestone = self.l7
+                self.next_milestone = self.l8
             elif points <= self.l8:
-                self.level_points = self.l8
+                self.milestone = self.l8
+                self.next_milestone = self.l9
             elif points <= self.l9:
-                self.level_points = self.l9
+                self.milestone = self.l9
+                self.next_milestone = 360,000
             else:
-                self.level_points = 360,000
+                self.milestone = 360,000
 
-            count = points / self.level_points
+            self.leveup_points = self.milestone // 100
+
             self.level = convert_points_to_level(points)
-            self.percentage = int(count * 100)
+            tmp_num = (self.next_milestone - points) / self.leveup_points
+            percent = tmp_num - int(tmp_num)
+            self.percentage = int(percent * 100)
 
             return (self.level, self.percentage)
 
@@ -264,10 +274,10 @@ class My_trophies:
             return icon
 
         self.user_accumulated_points = self.get_points([
-            self.bronze,
-            self.silver,
-            self.gold,
-            self.plat
+            self.bronze + user_bronze,
+            self.silver + user_silver,
+            self.gold + user_gold,
+            self.plat + user_plat
         ])
 
         level_and_percentage = get_level_and_percent(self.user_accumulated_points)
@@ -282,12 +292,17 @@ class My_trophies:
             Determine how many each trophy required to level up
         #########################################################
         """
-        points_left = (self.level_points - self.user_accumulated_points)//100
+        import math
+        next_milestone_points = self.milestone - self.user_accumulated_points
+        next_level_points = next_milestone_points / self.leveup_points
 
-        bronze = points_left // self.bronze_credit
-        silver = points_left // self.silver_credit
-        gold = points_left // self.gold_credit
-        platinum = points_left // self.plat_credit
+        decimals, intgers = math.modf(next_level_points) #yield tuble (decimals: float, integer: float)
+        next_level_trophies = self.leveup_points - (decimals * self.leveup_points)
+
+        bronze = int(next_level_trophies / self.bronze_credit) + 1
+        silver = int(next_level_trophies / self.silver_credit) + 1
+        gold = int(next_level_trophies / self.gold_credit) + 1
+        platinum = int(next_level_trophies / self.plat_credit) + 1
 
         # NOTE: if any trophy equal to 0, JS will increment it by 1
         return [bronze, silver, gold, platinum]
@@ -344,14 +359,14 @@ def get_points(trophies: list):
     return ps4.get_points(trophies)
 
 @eel.expose
-def get_all_trophies(user):
+def get_all_trophies(user, user_bronze, user_silver, user_gold, user_plat):
     global ps4
-    return ps4.get_all_trophies(user)
+    return ps4.get_all_trophies(user, user_bronze, user_silver, user_gold, user_plat)
 
 @eel.expose
-def get_user_info():
+def get_user_info(user_bronze, user_silver, user_gold, user_plat):
     global ps4
-    return ps4.get_user_info()
+    return ps4.get_user_info(user_bronze, user_silver, user_gold, user_plat)
 
 @eel.expose
 def get_trophies_to_levelup():
