@@ -3,20 +3,16 @@
 
 Trophy hunter with a jailbroken PS4? this might be helpful for you. A Trophy calculator application running on a localhost server, connects to PS4 directly through `FTP`. SOON! will support manual calculation for non-jailbroken consoles.
 
-
-
 ##### NOTE: Chrome is required to run this application
 
 ### *Download Latest release:-*
 
 ##### <https://github.com/OfficialAhmed/MyTrophies-PS4/releases>
 
-### *Update v3.07 Notes:-*
+### *Update v3.12 Notes (Not compiled):-*
 
-- **[**MAJOR BUG FIXED**]** *Nothing happens on 'fetch', caused by reading multiple users*
-- **[Fixed]** *Error file directory when changing accounts many times*
-- **[Fixed]** *IP placeholder*
-
+- **[Feature]** *Manual calculations for non-jailbroken PS4/PS5*
+- **[Fixed]** *Calculation issues*
 
 ### *Noobs Tutorial:-*
 
@@ -37,7 +33,7 @@ Trophy hunter with a jailbroken PS4? this might be helpful for you. A Trophy cal
 
 # User Interface
 
-![My Trophies v3.05](Screenshot.jpg)
+![My Trophies v3.12](Screenshot.jpg)
 
 # *How it works*
 
@@ -45,6 +41,8 @@ The application reads PS4 users' trophies and do many arithmetic calculation
 based on the new PlayStation trophy system as shown down below:
 
 ##### *NEW TROPHY SYSTEM*
+
+##### `Credits to <https://forum.psnprofiles.com/topic/96498-new-platinum-trophy-value-and-trophy-level-formula/>`
 
 Points awarded when earning a trophy
 |             |Points           |  

@@ -25,7 +25,6 @@ class My_trophies:
         # Levels 700 - 799: 2700 points
         # Levels 800 - 899: 3150 points
         # Levels 900 - 999: 3600 points
-        # Credits to https://forum.psnprofiles.com/topic/96498-new-platinum-trophy-value-and-trophy-level-formula/
 
         self.l1 = 6000  # Levels 1 - 99
         self.l2 = 9000  

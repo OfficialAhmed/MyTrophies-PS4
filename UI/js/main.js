@@ -164,7 +164,7 @@ async function export_file() {
 }
 
 window.onload = function () {
-  app_version = "3.07 alpha";
+  app_version = "3.12 alpha";
   document.title = "My Trophies v" + app_version;
   document.getElementById("wb_uid2").innerHTML = "My Trophies v" + app_version;
 
