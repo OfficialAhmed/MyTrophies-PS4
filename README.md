@@ -42,7 +42,7 @@ based on the new PlayStation trophy system as shown down below:
 
 ##### *NEW TROPHY SYSTEM*
 
-##### `Credits to <https://forum.psnprofiles.com/topic/96498-new-platinum-trophy-value-and-trophy-level-formula/>`
+##### Credits to <https://forum.psnprofiles.com/topic/96498-new-platinum-trophy-value-and-trophy-level-formula/>
 
 Points awarded when earning a trophy
 |             |Points           |  
